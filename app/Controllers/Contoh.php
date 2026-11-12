@@ -1,0 +1,41 @@
+<?php
+namespace App\Controllers;
+
+use App\Models\PenjualanModel;
+
+Class Contoh extends \App\Controllers\BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->model = new PenjualanModel;
+        
+		$this->data['site_title'] = 'Contoh';
+
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
+		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
+
+		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
+		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');
+		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal-loader.css');
+		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal-fapicker.css');
+
+		$this->addJs($this->config->baseURL . 'public/themes/modern/js/penjualan.js');
+		$this->addStyle($this->config->baseURL . 'public/themes/modern/css/modal-pilih-barang.css');
+
+		$this->addJs($this->config->baseURL . 'public/vendors/jquery.select2/js/select2.full.min.js');
+		$this->addStyle($this->config->baseURL . 'public/vendors/jquery.select2/css/select2.min.css');
+		$this->addStyle($this->config->baseURL . 'public/vendors/jquery.select2/bootstrap-5-theme/select2-bootstrap-5-theme.min.css');
+		$this->addJs($this->config->baseURL . 'public/vendors/filesaver/FileSaver.js');
+
+		$this->addJs($this->config->baseURL . 'public/themes/modern/js/wilayah.js');
+		$this->data['setting_kasir'] = $this->getSetting('kasir');
+    }
+
+    public function index()
+    {
+        $this->hasPermissionPrefix('read');
+		$data = $this->data;
+        $this->view('contoh', $this->data);
+    }
+}

@@ -1,0 +1,363 @@
+.right-panel-footer {
+	left: calc(50% + 10px);
+	bottom: calc(var(--fixed-margin-bottom) + 12px);
+	width: calc(50% - 28px);
+	padding: 10px;
+	border: 1px solid var(--pos-line);
+	border-radius: 0 0 10px 10px;
+	background: #fff;
+	box-shadow: 0 8px 22px rgba(33, 57, 53, .06);
+}
+
+.right-panel-body {
+	top: calc(var(--top-margin) + 86px);
+	bottom: calc(var(--fixed-margin-bottom) + 85px);
+	left: calc(50% + 10px);
+	width: calc(50% - 28px);
+	padding: 18px 22px;
+	border: 1px solid var(--pos-line);
+	border-top: 0;
+	background: #fff;
+	box-shadow: 0 8px 22px rgba(33, 57, 53, .045) !important;
+}
+
+body.barang-mobile-screen {
+	background: var(--pos-canvas);
+}
+
+body.barang-mobile-screen .left-panel {
+	left: 0;
+	width: 50%;
+	padding: 0 10px 12px 18px;
+	background: var(--pos-product-panel-bg) !important;
+}
+
+body.barang-mobile-screen #tabel-data_wrapper > .row:first-child {
+	top: calc(var(--top-margin) + 16px);
+	left: 20px;
+	width: calc(50% - 40px);
+	z-index: 3;
+	margin: 0;
+	padding: 7px 8px;
+	border: 1px solid var(--pos-line);
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 5px 16px rgba(33, 57, 53, .05);
+}
+
+body.barang-mobile-screen #tabel-data_wrapper > .row:first-child > .col-sm-12 {
+	padding: 0;
+}
+
+body.barang-mobile-screen #tabel-data_filter,
+body.barang-mobile-screen #tabel-data_filter label {
+	width: 100%;
+	margin: 0;
+	text-align: left;
+}
+
+body.barang-mobile-screen #tabel-data_wrapper .dataTables_filter input {
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 9px 13px;
+	font-size: .88rem;
+	min-height: 46px;
+	border: 1px solid var(--pos-line);
+	border-radius: 9px;
+	background: #fff;
+}
+
+body.barang-mobile-screen #tabel-data_filter .btn-close-panel {
+	width: 42px;
+	min-width: 42px;
+	height: 46px;
+	margin: 0 0 0 8px !important;
+	border: 1px solid var(--pos-line);
+	border-radius: 8px;
+	background: var(--pos-green-soft);
+	color: var(--pos-green-deep);
+}
+
+body.barang-mobile-screen #tabel-data_wrapper .dataTables_scroll {
+	top: calc(var(--top-margin) + 78px);
+	left: 20px;
+	width: calc(50% - 40px);
+	bottom: calc(var(--fixed-margin-bottom) + 78px);
+	padding: 8px;
+	border: 1px solid var(--pos-line);
+	border-radius: 10px !important;
+	background: #fff;
+	box-shadow: 0 8px 22px rgba(33, 57, 53, .06) !important;
+}
+
+body.barang-mobile-screen #tabel-data_wrapper .dataTables_scrollBody {
+	top: calc(var(--top-margin) + 118px);
+	left: 20px;
+	width: calc(50% - 40px) !important;
+	bottom: calc(var(--fixed-margin-bottom) + 78px);
+}
+
+body.barang-mobile-screen #tabel-data_wrapper > .row:last-child {
+	left: 20px;
+	width: calc(50% - 40px);
+	bottom: 12px;
+	z-index: 2;
+	margin: 0;
+	padding: 7px 10px;
+	border: 1px solid var(--pos-line);
+	border-radius: 9px;
+	background: #fff;
+	box-shadow: 0 5px 16px rgba(33, 57, 53, .05);
+}
+
+body.barang-mobile-screen #tabel-data_wrapper > .row:last-child > .col-sm-12 {
+	padding: 0;
+}
+
+body.barang-mobile-screen #tabel-data_paginate {
+	justify-content: flex-end;
+	overflow-x: auto;
+}
+
+body.barang-mobile-screen #tabel-data_paginate .pagination {
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	margin: 0;
+	box-shadow: none !important;
+}
+
+body.barang-mobile-screen #tabel-data_paginate .page-link {
+	border-color: var(--pos-line);
+	border-radius: 6px;
+	padding: 6px 10px;
+	color: var(--pos-accent-dark);
+	font-size: .8rem;
+}
+
+body.barang-mobile-screen #tabel-data_paginate .active .page-link {
+	border-color: var(--pos-accent);
+	background: var(--pos-accent);
+	color: #fff;
+}
+
+body.barang-mobile-screen .right-panel {
+	width: 50%;
+	padding: 0 18px 12px 10px;
+	background: var(--pos-cart-panel-bg) !important;
+}
+
+body.barang-mobile-screen .right-panel-header {
+	top: calc(var(--top-margin) + 16px);
+	left: calc(50% + 10px);
+	width: calc(50% - 28px);
+	height: 70px;
+	padding: 0 14px 0 20px !important;
+	justify-content: flex-start !important;
+	border: 1px solid var(--pos-line);
+	border-bottom: 0;
+	border-radius: 10px 10px 0 0 !important;
+	background: #fff;
+	box-shadow: 0 5px 18px rgba(33, 57, 53, .05) !important;
+}
+
+body.barang-mobile-screen .right-panel-header > i {
+	width: 38px;
+	height: 38px;
+	display: grid;
+	place-items: center;
+	border-radius: 10px;
+	background: var(--pos-green-soft);
+	color: var(--pos-green);
+	font-size: 15px;
+}
+
+body.barang-mobile-screen .right-panel-header .title {
+	margin: auto auto auto 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2px;
+	color: var(--pos-ink);
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+body.barang-mobile-screen .right-panel-header .title::before {
+	content: 'STOK BARANG';
+	color: var(--pos-muted);
+	font-size: .62rem;
+	font-weight: 700;
+}
+
+body.barang-mobile-screen .right-panel-header button {
+	width: 40px;
+	height: 40px;
+	flex: 0 0 40px;
+	border: 1px solid transparent !important;
+	border-radius: 10px;
+	background: var(--pos-green-soft);
+	color: var(--pos-green-deep);
+}
+
+body.barang-mobile-screen .right-panel-body .card {
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+body.barang-mobile-screen .right-panel-body .card-header {
+	border-bottom: 1px solid var(--pos-line);
+	background: transparent;
+	color: var(--pos-ink);
+	font-weight: 700;
+}
+
+body.barang-mobile-screen .right-panel-body .form-control,
+body.barang-mobile-screen .right-panel-body .form-select {
+	min-height: 42px;
+	border-color: var(--pos-line);
+	border-radius: 7px;
+}
+
+body.barang-mobile-screen .right-panel-body .input-group-counter button {
+	min-width: 40px;
+	min-height: 40px;
+	border-radius: 7px;
+	background: var(--pos-green-soft);
+	color: var(--pos-green-deep);
+}
+
+body.barang-mobile-screen .right-panel-footer {
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px;
+}
+
+body.barang-mobile-screen .right-panel-footer .btn-submit {
+	min-width: 140px;
+	min-height: 48px;
+	border: 0;
+	border-radius: 8px;
+	background: var(--pos-accent);
+	font-weight: 700;
+}
+
+body.barang-mobile-screen .barang-mobile-empty-state {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 32px 20px;
+	text-align: center;
+}
+
+body.barang-mobile-screen .barang-mobile-empty-icon {
+	width: 66px;
+	height: 66px;
+	margin-bottom: 18px;
+	display: grid;
+	place-items: center;
+	border: 1px solid rgba(var(--pos-accent-rgb), .2);
+	border-radius: 20px;
+	background: var(--pos-green-soft);
+	color: var(--pos-green);
+	font-size: 22px;
+}
+
+body.barang-mobile-screen .barang-mobile-empty-title {
+	margin: 0 0 5px;
+	color: var(--pos-ink);
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+body.barang-mobile-screen .barang-mobile-empty-copy {
+	max-width: 320px;
+	margin: 0;
+	color: var(--pos-muted);
+	font-size: .88rem;
+	line-height: 1.55;
+}
+
+@media screen and (max-width: 960px) {
+	body.barang-mobile-screen .left-panel {
+		top: 0;
+		width: 100%;
+		padding: 18px 15px;
+	}
+
+	body.barang-mobile-screen #tabel-data_wrapper > .row:first-child {
+		top: calc(var(--top-margin) + 16px);
+		left: 10px;
+		width: calc(100% - 20px);
+	}
+
+	body.barang-mobile-screen #tabel-data_wrapper .dataTables_scroll {
+		top: calc(var(--top-margin) + 78px);
+		left: 10px;
+		width: calc(100% - 20px);
+	}
+
+	body.barang-mobile-screen #tabel-data_wrapper .dataTables_scrollBody {
+		left: 10px;
+		width: calc(100% - 20px) !important;
+	}
+
+	body.barang-mobile-screen #tabel-data_wrapper > .row:last-child {
+		left: 10px;
+		width: calc(100% - 20px);
+		padding: 6px 8px;
+	}
+
+	body.barang-mobile-screen #tabel-data_paginate .page-link {
+		padding: 6px 8px;
+	}
+
+	body.barang-mobile-screen .right-panel {
+		width: 100%;
+	}
+
+	body.barang-mobile-screen .right-panel-header,
+	body.barang-mobile-screen .right-panel-body,
+	body.barang-mobile-screen .right-panel-footer {
+		left: 10px;
+		right: 10px;
+		width: calc(100% - 20px);
+	}
+
+	body.barang-mobile-screen .right-panel-header {
+		top: calc(var(--top-margin) + 16px);
+		height: 64px;
+		padding: 0 8px 0 13px !important;
+	}
+
+	body.barang-mobile-screen .right-panel-header > i {
+		width: 34px;
+		height: 34px;
+		margin-right: 9px !important;
+		font-size: 13px;
+	}
+
+	body.barang-mobile-screen .right-panel-header .title {
+		font-size: .91rem;
+	}
+
+	body.barang-mobile-screen .right-panel-header button {
+		width: 36px;
+		height: 36px;
+		flex-basis: 36px;
+		margin-right: 5px !important;
+	}
+
+	body.barang-mobile-screen .right-panel-body {
+		top: calc(var(--top-margin) + 80px);
+		padding: 12px;
+	}
+
+	body.barang-mobile-screen .right-panel-footer {
+		bottom: calc(var(--fixed-margin-bottom) + 8px);
+		padding: 8px;
+	}
+}

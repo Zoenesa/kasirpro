@@ -1,0 +1,442 @@
+.right-panel-footer {
+	border-top: 1px solid #e4e5e7;
+}
+
+.right-panel-body {
+    bottom: calc(var(--fixed-margin-bottom) + 85px);
+}
+
+body.penjualan-mobile-screen {
+    background: var(--pos-canvas);
+}
+
+body.penjualan-mobile-screen .left-panel {
+    left: 0;
+    width: 50%;
+    padding: 0 10px 12px 18px;
+    background: var(--pos-product-panel-bg) !important;
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper > .row:first-child {
+    top: calc(var(--top-margin) + 16px);
+    left: 20px;
+    width: calc(50% - 40px);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scroll {
+    top: calc(var(--top-margin) + 71px);
+    left: 20px;
+    width: calc(50% - 40px);
+    bottom: 24px;
+    padding: 8px;
+    border: 1px solid var(--pos-line);
+    border-radius: 10px !important;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(33, 57, 53, .06) !important;
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scrollBody {
+    top: calc(var(--top-margin) + 111px);
+    left: 20px;
+    width: calc(50% - 40px) !important;
+    bottom: 66px;
+}
+
+body.penjualan-mobile-screen #tabel-data {
+    margin: 0;
+    color: var(--pos-ink);
+}
+
+body.penjualan-mobile-screen #tabel-data thead th {
+    padding: 13px 10px;
+    border-bottom: 1px solid var(--pos-line);
+    color: var(--pos-muted);
+    font-size: .76rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+body.penjualan-mobile-screen #tabel-data tbody td {
+    padding: 13px 10px;
+    border-bottom: 1px solid var(--pos-line);
+    color: var(--pos-ink);
+    font-size: .86rem;
+}
+
+body.penjualan-mobile-screen #tabel-data tbody tr {
+    cursor: pointer;
+    transition: background-color .14s ease;
+}
+
+body.penjualan-mobile-screen #tabel-data tbody tr:hover td {
+    background: rgba(var(--pos-accent-rgb), .07);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_filter input {
+    min-height: 46px;
+    border: 1px solid var(--pos-line);
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(33, 57, 53, .035);
+}
+
+body.penjualan-mobile-screen .right-panel {
+    width: 50%;
+    padding: 0 18px 12px 10px;
+    background: var(--pos-cart-panel-bg) !important;
+}
+
+body.penjualan-mobile-screen .right-panel-header {
+    top: calc(var(--top-margin) + 16px);
+    left: calc(50% + 10px);
+    width: calc(50% - 28px);
+    height: 70px;
+    padding: 0 14px 0 20px !important;
+    justify-content: flex-start !important;
+    border: 1px solid var(--pos-line);
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0 !important;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(33, 57, 53, .05) !important;
+}
+
+body.penjualan-mobile-screen .right-panel-header > i {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--pos-green-soft);
+    color: var(--pos-green);
+    font-size: 15px;
+}
+
+body.penjualan-mobile-screen .right-panel-header .title {
+    margin: auto auto auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    color: var(--pos-ink);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+body.penjualan-mobile-screen .right-panel-header .title::before {
+    content: 'INVOICE';
+    color: var(--pos-muted);
+    font-size: .62rem;
+    font-weight: 700;
+}
+
+body.penjualan-mobile-screen .right-panel-header button {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border: 1px solid transparent !important;
+    border-radius: 10px;
+    background: var(--pos-green-soft);
+    color: var(--pos-green-deep);
+}
+
+body.penjualan-mobile-screen .right-panel-body {
+    top: calc(var(--top-margin) + 86px);
+    bottom: calc(var(--fixed-margin-bottom) + 85px);
+    left: calc(50% + 10px);
+    width: calc(50% - 28px);
+    padding: 18px 22px;
+    border: 1px solid var(--pos-line);
+    border-top: 0;
+    border-bottom: 0;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(33, 57, 53, .045) !important;
+}
+
+body.penjualan-mobile-screen .invoice-empty-state {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    text-align: center;
+}
+
+body.penjualan-mobile-screen .invoice-empty-icon {
+    width: 66px;
+    height: 66px;
+    margin-bottom: 18px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(var(--pos-accent-rgb), .2);
+    border-radius: 20px;
+    background: var(--pos-green-soft);
+    color: var(--pos-green);
+    font-size: 22px;
+}
+
+body.penjualan-mobile-screen .invoice-empty-title {
+    margin: 0 0 5px;
+    color: var(--pos-ink);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+body.penjualan-mobile-screen .invoice-empty-copy {
+    max-width: 320px;
+    margin: 0;
+    color: var(--pos-muted);
+    font-size: .88rem;
+    line-height: 1.55;
+}
+
+body.penjualan-mobile-screen .right-panel-footer {
+    left: calc(50% + 10px);
+    bottom: calc(var(--fixed-margin-bottom) + 12px);
+    width: calc(50% - 28px);
+    padding: 10px;
+    border: 1px solid var(--pos-line);
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(33, 57, 53, .06);
+}
+
+body.penjualan-mobile-screen .right-panel-footer .btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+body.penjualan-mobile-screen .right-panel-footer .btn {
+    min-height: 44px;
+    margin: 0 !important;
+    border-radius: 8px;
+    font-size: .84rem;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+body.penjualan-mobile-screen #barang-pilih-tabel {
+    width: 100%;
+    color: var(--pos-ink);
+}
+
+body.penjualan-mobile-screen #barang-pilih-tabel td {
+    padding: 10px 6px;
+    border-bottom: 1px solid var(--pos-line);
+}
+
+body.penjualan-mobile-screen #barang-pilih-tabel hr {
+    display: none;
+}
+
+body.penjualan-mobile-screen #subtotal-tbody,
+body.penjualan-mobile-screen .row-number {
+    color: var(--pos-ink);
+}
+
+body.penjualan-mobile-screen #total-text {
+    color: var(--pos-accent-dark);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper > .row:first-child {
+    top: calc(var(--top-margin) + 16px);
+    left: 20px;
+    width: calc(50% - 40px);
+    z-index: 3;
+    margin: 0;
+    padding: 7px 8px;
+    border: 1px solid var(--pos-line);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 5px 16px rgba(33, 57, 53, .05);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper > .row:first-child > .col-sm-12 {
+    padding: 0;
+}
+
+body.penjualan-mobile-screen #tabel-data_filter,
+body.penjualan-mobile-screen #tabel-data_filter label {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_filter input {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 9px 13px;
+    font-size: .88rem;
+}
+
+body.penjualan-mobile-screen #tabel-data_filter .btn-close-panel {
+    width: 42px;
+    min-width: 42px;
+    height: 46px;
+    margin: 0 0 0 8px !important;
+    border: 1px solid var(--pos-line);
+    border-radius: 8px;
+    background: var(--pos-green-soft);
+    color: var(--pos-green-deep);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scroll {
+    top: calc(var(--top-margin) + 78px);
+    bottom: calc(var(--fixed-margin-bottom) + 78px);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scrollBody {
+    top: calc(var(--top-margin) + 118px);
+    bottom: calc(var(--fixed-margin-bottom) + 78px);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper > .row:last-child {
+    left: 20px;
+    width: calc(50% - 40px);
+    bottom: 12px;
+    z-index: 2;
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid var(--pos-line);
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: 0 5px 16px rgba(33, 57, 53, .05);
+}
+
+body.penjualan-mobile-screen #tabel-data_wrapper > .row:last-child > .col-sm-12 {
+    padding: 0;
+}
+
+body.penjualan-mobile-screen #tabel-data_paginate {
+    justify-content: flex-end;
+    overflow-x: auto;
+}
+
+body.penjualan-mobile-screen #tabel-data_paginate .pagination {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin: 0;
+    box-shadow: none !important;
+}
+
+body.penjualan-mobile-screen #tabel-data_paginate .page-link {
+    border-color: var(--pos-line);
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: var(--pos-accent-dark);
+    font-size: .8rem;
+}
+
+body.penjualan-mobile-screen #tabel-data_paginate .active .page-link {
+    border-color: var(--pos-accent);
+    background: var(--pos-accent);
+    color: #fff;
+}
+
+@media screen and (max-width: 960px) {
+    body.penjualan-mobile-screen .left-panel {
+        top: 0;
+        width: 100%;
+        padding: 18px 15px;
+    }
+
+    body.penjualan-mobile-screen #tabel-data_wrapper > .row:first-child {
+        top: calc(var(--top-margin) + 16px);
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scroll {
+        top: calc(var(--top-margin) + 78px);
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    body.penjualan-mobile-screen #tabel-data_wrapper .dataTables_scrollBody {
+        left: 10px;
+        width: calc(100% - 20px) !important;
+    }
+
+    body.penjualan-mobile-screen #tabel-data_wrapper > .row:last-child {
+        left: 10px;
+        width: calc(100% - 20px);
+        padding: 6px 8px;
+    }
+
+    body.penjualan-mobile-screen #tabel-data_paginate .page-link {
+        padding: 6px 8px;
+    }
+
+    body.penjualan-mobile-screen .right-panel {
+        width: 100%;
+    }
+
+    body.penjualan-mobile-screen .right-panel-header,
+    body.penjualan-mobile-screen .right-panel-body,
+    body.penjualan-mobile-screen .right-panel-footer {
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+    }
+
+    body.penjualan-mobile-screen .right-panel-header {
+        top: calc(var(--top-margin) + 16px);
+        height: 64px;
+        padding: 0 8px 0 13px !important;
+    }
+
+    body.penjualan-mobile-screen .right-panel-header > i {
+        width: 34px;
+        height: 34px;
+        margin-right: 9px !important;
+        font-size: 13px;
+    }
+
+    body.penjualan-mobile-screen .right-panel-header .title {
+        font-size: .91rem;
+    }
+
+    body.penjualan-mobile-screen .right-panel-header button {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        margin-right: 5px !important;
+    }
+
+    body.penjualan-mobile-screen .right-panel-body {
+        top: calc(var(--top-margin) + 80px);
+        padding: 12px;
+    }
+
+    body.penjualan-mobile-screen .right-panel-footer {
+        bottom: calc(var(--fixed-margin-bottom) + 8px);
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    body.penjualan-mobile-screen .right-panel-footer .btn {
+        min-height: 42px;
+        padding: 8px 10px;
+    }
+
+    body.penjualan-mobile-screen .invoice-empty-state {
+        padding: 24px 12px;
+    }
+}
+
+/* Modal barang */
+.list-barang-terpilih {
+    padding: 15px 20px 10px 20px;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

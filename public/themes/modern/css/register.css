@@ -1,0 +1,313 @@
+html {
+	height: 100%;
+
+}
+
+body {
+	font-family: "open sans", "segoe ui", "arial";
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+}
+
+label {
+	font-weight: bold;
+}
+
+li {
+	margin-left: 20px;
+}
+
+.login-input,
+.login-input:focus {
+	border: 0;
+	border-bottom: 1px solid #CCCCCC;
+	outline: none;
+	box-shadow: none;
+}
+
+.input-group-text {
+	background: none;
+	border: 0;
+}
+
+.alert ul {
+	margin: 0;
+	padding: 0;
+}
+
+p.small {
+	margin-bottom: 0;
+}
+
+small.alert {
+	padding: 5px;
+	padding-left: 10px;
+	display: block;
+	margin: 0;
+	margin-top: 3px;
+}
+
+.card-header:first-child {
+	border-radius: 0;
+}
+
+.background,
+.backdrop {
+	background-color: #3f689c;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+}
+
+.background {
+	background: url('../../../images/bg_login.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.text-overlay {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	/* Mengatur posisi ke kiri */
+	transform: translateY(-50%);
+	color: white;
+	font-size: 28px;
+	z-index: 10;
+	/* Pastikan tulisan berada di atas latar belakang */
+}
+
+.pro {
+	font-weight: bold;
+	/* Membuat teks "PRO" menjadi tebal */
+}
+
+.slogan {
+	font-size: 14px;
+	/* Atur ukuran teks slogan */
+}
+
+
+@keyframes nebulaAnimation {
+	0% {
+		background-color: #9b59b6;
+	}
+
+	50% {
+		background-color: #3498db;
+	}
+
+	100% {
+		background-color: #9b59b6;
+	}
+}
+
+.backdrop {
+	background-color: #9b59b6;
+	animation: nebulaAnimation 6s ease infinite alternate;
+	filter: alpha(opacity=90);
+	opacity: .7;
+}
+
+
+/* .backdrop {
+	background: #223444;
+	filter: alpha(opacity=90);
+	opacity: .7;
+} */
+
+.card-container {
+	width: 650px;
+	width: 100%;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	background-color: #ffffff;
+	padding: 0px;
+	height: 100%;
+}
+
+.card-body {
+	padding: 25px;
+	background: #FFFFFF;
+}
+
+.card-header img {
+	/* border: 1px solid #CCCCCC; */
+	padding: 10px;
+	/* border-radius: 50px; */
+	max-width: 100px;
+}
+
+.card-header.transparent-header {
+	padding: 0;
+	margin: 0;
+	padding: 25px;
+	padding-bottom: 20px;
+	background: transparent;
+}
+
+.card-header.transparent-header img {
+	max-width: 80%;
+	width: auto;
+}
+
+.card-header {
+	text-align: center;
+	padding: 25px;
+	padding-bottom: 0;
+	background: #FFFFFF;
+	border: 0;
+}
+
+.card-header h3 {
+	font-weight: lighter;
+	font-size: 25px;
+	margin: 0;
+	margin-top: 10px;
+}
+
+.card-footer {
+	background: #f1f1f1;
+	text-align: center;
+	padding: 20px 25px;
+	font-size: 95%;
+}
+
+.card-footer p {
+	margin-bottom: 5px;
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.card-container .btn {
+	height: calc(2.75rem + 2px);
+}
+
+.card-container .copyright {
+	background: none;
+	color: #313131;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.form-register {
+	margin: 0;
+	margin-top: 20px;
+}
+
+.alert {
+	border-radius: 0;
+}
+
+.card-container .alert-last {
+	margin: 0;
+}
+
+.checkbox label {
+	cursor: pointer;
+}
+
+.progress {
+	border-radius: 0;
+}
+
+.form-inline input:not(:last-child),
+.form-inline select:not(:last-child) {
+	margin-right: 3px;
+}
+
+@media screen and (max-width: 600px) {
+	.card-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		right: auto;
+		padding: 10px;
+		/* Hapus properti right yang ada */
+		background-color: #9b59b6;
+		/* Atur warna latar belakang */
+		animation: nebulaAnimation 6s ease infinite alternate;
+		/* Tambahkan animasi nebula */
+	}
+
+	.text-overlay {
+		display: none;
+	}
+
+	@keyframes nebulaAnimation {
+		0% {
+			background-color: #9b59b6;
+		}
+
+		50% {
+			background-color: #3498db;
+		}
+
+		100% {
+			background-color: #9b59b6;
+		}
+	}
+
+	.backdrop {
+		/* background: none; */
+	}
+
+	.background {
+		background-image: url('../../../images/bg_login_mobile.jpg');
+		background-size: cover;
+
+	}
+
+	.card-body {
+		padding: 20px;
+	}
+
+	.card-header {
+		padding: 20px;
+		padding-bottom: 0;
+	}
+
+	.card-footer {
+		padding: 20px 20px;
+	}
+
+	input,
+	select {
+		max-width: 100% !important;
+		float: none;
+		margin-top: 3px;
+	}
+
+	.form-inline input,
+	.form-inline select {
+		margin-right: 0 !important;
+	}
+}

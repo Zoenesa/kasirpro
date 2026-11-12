@@ -1,0 +1,50 @@
+# aplikasi-kasir
+Aplikasi kasir berbasis web dengan PHP dan MySQL/MariaDB
+
+Versi 1.8 (11 Desember 2023)
+
+Penambahan dan perbaikan:
+Menu Penjualan > Penjualan: jika diskon dan pengurang dihapus error saat simpan data
+Menu Customer: Penambahan fitur upload data customer dengan file excel
+Fitur print nota: untuk penjualan kurang bayar sekarang muncul nilai kurang bayarnya
+Menu Dashboard: perbaikan data jumlah item terjual
+Perubahan database:
+
+Perubahan tabel customer kolom id_wilayah_kelurahan sekarang bisa menerima nilai null (allow NULL)
+Tabel barang: penambahan kolom tgl_daluarsa dengan tipe data kolom DATE
+Tabel barang_adjusment_stok: penambahan kolom tgl_adjusment_stok dengan tipe data kolom DATE
+
+
+Versi 1.9 (25 Desember 2023)
+
+Penambahan dan perbaikan:
+Menu Barang pada kasir: sebelumnya terjadi error ketika merubah stok barang
+Menu Penjualan: sekarang terdapat isian metode pembayaran (tunai atau transfer)
+Menu Kasir: sebelumnya tidak bisa menyimpan data penjualan
+
+Versi 1.10 (1 Januari 2024)
+
+Penambahan dan perbaikan:
+Menu Pembelian: sebelum error ketika menambah pembelian.
+Menu Kasir: ketika menambah produk (klik produk) namun stok produk, harga pokok, atau harga jual masih kosong, maka muncul alert.
+Menu Dashboard: perbaikan data jumlah item terjual
+
+Versi 1.1.1 (11 Januari 2024)
+
+Penambahan dan perbaikan:
+Setting Layout : penambahan color-schemes pada pengaturan layout
+Menu kasir: sebelumnya tidak dapat menambah barang dan muncul peringatan harga jual belum diisi.
+perbaikan pada invoice penjualan
+Menu penjualan: terjadi error ketika kirim invoice ke email customer, nama pengirim juga tidak bisa diatur sesuai keinginan.
+
+Versi 1.1.2 (1 Februari 2024)
+Perbaikan Background Login style di ubah menjadi cover
+penambahan background login pada style mobile
+Perbaikan :
+Menu Penjualan Mobile : Cetak Nota sudah di perbaiki yang sebelumnya menggunakan escpos.org untuk mencetak langsung tanpa redirect sekarang kita ganti ke window print dengan bantuan app "RawBT"
+
+Versi 1.1.3 (19 April 2024)
+- perbaikan pada user role
+- perbaikan pada akses definer
+- Perbaikan pada pembayaran jatuh tempo
+- Penambahan fitur kalkulator pada POS Mobile
