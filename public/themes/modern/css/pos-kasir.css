@@ -554,7 +554,7 @@ body.pos-kasir-screen #tabel-data_paginate .page-link {
 
 .form-bayar .form-control,
 .form-bayar .form-select {
-	min-height: 44px;
+	min-height: 40px;
 	border-color: #d4dfdb;
 	border-radius: 7px;
 }

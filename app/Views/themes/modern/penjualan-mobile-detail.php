@@ -1,6 +1,6 @@
 <div class="row mb-3">
 	<label class="col-sm-4">Nama Pelanggan</label>
-	<div class="col-sm-8"><?= $penjualan['nama_customer'] ?></div>
+	<div class="col-sm-8"><?= $penjualan['nama_customer'] == null ? 'Umum' : $penjualan['nama_customer'] ?></div>
 </div>
 <div class="row mb-3">
 	<label class="col-sm-4">No. Invoice</label>

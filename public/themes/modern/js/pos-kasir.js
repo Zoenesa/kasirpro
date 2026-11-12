@@ -305,6 +305,7 @@ $(document).ready(function()
 			$list_barang.find('.del-item').trigger('click');
 		}
 		$('.total-text').text('0');
+		$('#del-customer').trigger('click');
 	})
 
 	function showItemActions($tbody) {
@@ -931,7 +932,6 @@ $(document).ready(function()
 										// $bootbox.hide();
 										$bootbox.find('.bootbox-cancel').click();
 										$('.del-barang-pilih').trigger('click');
-										
 										show_toast('Data berhasil disimpan');
 										return;
 									}
@@ -1235,7 +1235,7 @@ $(document).ready(function()
 		}
 		
 		suara = new Audio(base_url + 'public/files/audio/beep.wav');
-		suara.play();
+		// suara.play();
 		
 		$('.barang-pilih-empty').hide();
 		$('.btn-bayar').prop('disabled', false);
