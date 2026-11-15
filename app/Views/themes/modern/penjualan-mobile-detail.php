@@ -8,7 +8,7 @@
 </div>
 <div class="row mb-3">
 	<label class="col-sm-4">Tanggal</label>
-	<div class="col-sm-8"><?= $penjualan['tgl_invoice'] ?></div>
+	<div class="col-sm-8"><?= format_tanggal($penjualan['tgl_invoice'], 'dd-mm-yyyy') ?></div>
 </div>
 <div class="row mb-3">
 	<label class="col-sm-4">Gudang</label>
