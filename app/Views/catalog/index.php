@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Katalog Produk</title>
+	<link rel="shortcut icon" href="<?= $config->baseURL . 'public/images/favicon.png?r=' . time() ?>" />
     <link rel="stylesheet" href="<?= esc($config->baseURL . 'public/vendors/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= esc($config->baseURL . 'public/vendors/fontawesome/css/all.css') ?>">
     <link rel="stylesheet" href="<?= esc($config->baseURL . 'public/themes/modern/css/catalog.css') ?>">
@@ -16,12 +17,17 @@
                 <!-- <a class="nav-link active" href="<?= esc($config->baseURL) ?>">Katalog</a> -->
                 
                 <?php if (session()->get('logged_in')) { ?>
-                    <a class="nav-login active" href="<?= esc($config->baseURL . 'pos-kasir') ?>">Point of Sales</a>
+                    <a class="nav-login" href="<?= esc($config->baseURL . 'dashboard') ?>">
+                        <i class="fas fa-tachometer-alt me-2" aria-hidden="true"></i>Dashboard
+                    </a>
+                    <a class="nav-login" href="<?= esc($config->baseURL . 'pos-kasir') ?>">
+                        <i class="fas fa-cash-register me-2" aria-hidden="true"></i>Point of Sales
+                    </a>
                 <?php }  else {?>
                 
-                <a class="nav-login" href="<?= esc($config->baseURL . 'login') ?>">
-                    <i class="fas fa-user me-2" aria-hidden="true"></i>Login
-                </a>
+                    <a class="nav-login" href="<?= esc($config->baseURL . 'login') ?>">
+                        <i class="fas fa-user me-2" aria-hidden="true"></i>Login
+                    </a>
                 <?php } ?>
             </nav>
         </div>
