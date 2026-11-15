@@ -114,7 +114,9 @@ jQuery(document).ready(function () {
 	$('.flatpickr').flatpickr({
 		enableTime: false,
 		dateFormat: "d-m-Y",
-		time_24hr: true
+		time_24hr: true,
+		locale: 'id',
+		defaultDate: new Date()
 	});
 
 	$('#add-customer').click(function () {
