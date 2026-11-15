@@ -93,7 +93,7 @@ if (empty($_SESSION['user'])) {
 <body class="<?= @$_COOKIE['jwd_adm_mobile'] ? 'mobile-menu-show' : '' ?>">
 	<header class="nav-header shadow">
 		<div class="nav-header-logo pull-left">
-			<a class="header-logo" href="<?= $config->baseURL ?>" title="Jagowebdev">
+			<a class="header-logo" href="<?= $config->baseURL ?>" title="<?= $setting_aplikasi['judul_web'] ?>">
 				<img src="<?= $config->baseURL . '/public/images/' . $setting_aplikasi['logo_app'] ?>" />
 			</a>
 		</div>
