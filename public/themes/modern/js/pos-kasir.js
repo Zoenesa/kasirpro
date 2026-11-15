@@ -971,6 +971,7 @@ $(document).ready(function()
 			locale: 'id',
         	autoclose: true,
 			allowinput: true,
+			maxDate: new Date(),
 			defaultDate: new Date()
 		});
 
