@@ -24,9 +24,13 @@ class Pos_kasir extends \App\Controllers\BaseController
 
 	public function index()
 	{
-		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.css');
+		
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
+		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
+		
+		// $this->addStyle($this->config->baseURL . 'public/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css');
+		// $this->addJs($this->config->baseURL . 'public/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js');
 
 		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');
@@ -69,7 +73,7 @@ class Pos_kasir extends \App\Controllers\BaseController
 			$pajak[$val['param']] = $val['value'];
 		}
 		$this->data['pajak'] = $pajak;
-
+		$this->data['tgl_invoice'] = date('Y-m-d');
 		$result = $this->model->getSettingKasir();
 		foreach ($result as $val) {
 			$setting_kasir[$val['param']] = $val['value'];
@@ -95,11 +99,11 @@ class Pos_kasir extends \App\Controllers\BaseController
 	{
 		$model = new \App\Models\PenjualanModel;
 		$result = $model->saveData();
-		// echo json_encode($result);
-		// echo '<pre>';
-		// print_r($_POST); die;
-		// $result['status'] = 'ok';
-		// $result['message'] = 'Data berhasil disimpan';
+		echo json_encode($result);
+		echo '<pre>';
+		print_r($_POST); die;
+		$result['status'] = 'ok';
+		$result['message'] = 'Data berhasil disimpan';
 		echo json_encode($result);
 	}
 
