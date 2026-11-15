@@ -29,9 +29,6 @@ class Pos_kasir extends \App\Controllers\BaseController
 		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
 		
-		// $this->addStyle($this->config->baseURL . 'public/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css');
-		// $this->addJs($this->config->baseURL . 'public/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js');
-
 		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal-loader.css');
@@ -99,11 +96,11 @@ class Pos_kasir extends \App\Controllers\BaseController
 	{
 		$model = new \App\Models\PenjualanModel;
 		$result = $model->saveData();
-		echo json_encode($result);
-		echo '<pre>';
-		print_r($_POST); die;
-		$result['status'] = 'ok';
-		$result['message'] = 'Data berhasil disimpan';
+		// echo json_encode($result);
+		// echo '<pre>';
+		// print_r($_POST); die;
+		// $result['status'] = 'ok';
+		// $result['message'] = 'Data berhasil disimpan';
 		echo json_encode($result);
 	}
 

@@ -967,11 +967,12 @@ $(document).ready(function()
 		});
 
 		$bootbox.find('.modal-body').html($form);
-		$form.find('.flatpickr').flatpickr({
-			dateFormat: 'd-M-Y',
+		$bootbox.find('.tgl-invoice').flatpickr({
+			dateFormat: 'd-m-Y',
 			locale: 'id',
         	autoclose: true,
-			defaultDate: date('d-m-Y'),
+			allowinput: true,
+			defaultDate: new Date()
 		});
 
 		$bootbox.find('.jml-bayar').val('').focus();
