@@ -880,11 +880,13 @@ $(document).ready(function()
 		$this = $(this);
 		total_nilai = $('#total-input').val();
 		$form = $('.form-bayar').clone().show();
+
 		$form.find('.jml-tagihan').val(format_ribuan(total_nilai));
 
 		$bootbox =  bootbox.dialog({
-			title: 'Bayar',
+			title: 'Bayar Pesanan',
 			message: 'bayar',
+			locale: 'id',
 			buttons: {
 				cancel: {
 					label: 'Close',
@@ -900,14 +902,9 @@ $(document).ready(function()
 					className: 'btn-success submit',
 					callback: function() 
 					{
-					
 						$form_list_barang = $('#barang-pilih-form');
-						// $form_list_barang.find('.form-bayar-inserted').remove();
 						
 						$form_bayar = $bootbox.find('.form-bayar').clone().hide();
-						// $form_bayar.removeAttr('class');
-						// $form_bayar.addClass('form-bayar-inserted');
-						// $form_list_barang.append($form_bayar);
 						
 						data = $form_list_barang.serialize();
 						data += '&' + $bootbox.find('.form-bayar').serialize();
@@ -959,7 +956,6 @@ $(document).ready(function()
 						})
 						return false;
 					}
-					
 				}
 			},
 			onEscape: function() {
@@ -969,7 +965,15 @@ $(document).ready(function()
 				}
 			}
 		});
+
 		$bootbox.find('.modal-body').html($form);
+		$form.find('.flatpickr').flatpickr({
+			dateFormat: 'd-M-Y',
+			locale: 'id',
+        	autoclose: true,
+			defaultDate: date('d-m-Y'),
+		});
+
 		$bootbox.find('.jml-bayar').val('').focus();
 	});
 		

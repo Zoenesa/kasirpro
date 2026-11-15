@@ -290,9 +290,16 @@
 					</form>
 					<form class="form-bayar" style="display: none">
 						<div class="row mb-3">
-							<label class="col-sm-4 col-form-label">Jml. Tagihan</label>
+							<label class="col-sm-4 col-form-label">Tanggal Invoice</label>
 							<div class="col-sm-8">
-								<input class="form-control jml-tagihan number" inputmode="numeric" type="text" name="total_tagihan" value="0" required="required">
+								<input class="form-control flatpickr tgl-invoice text-end number" type="text" id="tgl_invoice" placeholder="Tanggal Invoice" name="tgl_invoice" required="true">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<label class="col-sm-4 col-form-label">Jumlah Tagihan</label>
+							<div class="col-sm-8">
+								<input class="form-control jml-tagihan number" inputmode="numeric" type="text" name="total_tagihan" value="0" required="true" readonly>
 							</div>
 						</div>
 						<div class="form-group row mb-3">
@@ -307,7 +314,7 @@
 							<label class="col-sm-4 col-form-label">Jumlah Bayar</label>
 							<div class="col-sm-8">
 								<div class="input-group">
-									<input class="form-control jml-bayar number" inputmode="numeric" type="text" name="jml_bayar[]" value="0" required="required">
+									<input class="form-control jml-bayar number" inputmode="numeric" type="text" name="jml_bayar[]" value="0" required="true">
 									<?= options(['name' => 'metode_bayar'], ['tunai' => 'Tunai', 'transfer' => 'Transfer']) ?>
 								</div>
 								<input type="hidden" name="tgl_bayar[]" value="<?= date('d-m-Y') ?>" />
@@ -343,4 +350,5 @@
 		<input type="hidden" id="page-type" value="kasir" />
 	</div>
 </div>
+
 <?= $this->endSection() ?>

@@ -11,12 +11,18 @@
 <body>
     <header class="catalog-navbar">
         <div class="catalog-navbar-inner">
-            <a class="catalog-brand" href="<?= esc($config->baseURL) ?>">kasir<span>PRO</span></a>
+            <a class="catalog-brand" href="<?= esc($config->baseURL) ?>">Depot Air Minum & Gas 3Kg</a>
             <nav aria-label="Navigasi utama">
-                <a class="nav-link active" href="<?= esc($config->baseURL) ?>">Katalog</a>
+                <!-- <a class="nav-link active" href="<?= esc($config->baseURL) ?>">Katalog</a> -->
+                
+                <?php if (session()->get('logged_in')) { ?>
+                    <a class="nav-login active" href="<?= esc($config->baseURL . 'pos-kasir') ?>">Point of Sales</a>
+                <?php }  else {?>
+                
                 <a class="nav-login" href="<?= esc($config->baseURL . 'login') ?>">
                     <i class="fas fa-user me-2" aria-hidden="true"></i>Login
                 </a>
+                <?php } ?>
             </nav>
         </div>
     </header>

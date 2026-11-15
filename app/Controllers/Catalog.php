@@ -7,9 +7,12 @@ use CodeIgniter\Controller;
 
 class Catalog extends Controller
 {
+    protected $session;
+
     public function index(): string
     {
         $request = service('request');
+        $this->session = \Config\Services::session();
         $model = new CatalogModel();
         $perPage = 12;
         $pageInput = $request->getGet('page');
@@ -26,6 +29,7 @@ class Catalog extends Controller
             $perPage,
             $model->getDefaultPriceTypeId()
         );
+
 
         return view('catalog/index', [
             'config' => config('App'),
