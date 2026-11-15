@@ -323,11 +323,12 @@ class PenjualanModel extends \App\Models\BaseModel
 			$no_invoice = str_replace('{{tahun}}', date('Y'), $no_invoice);
 			$data_db['no_invoice'] = $no_invoice;
 			$data_db['no_squence'] = $no_squence;
-			$data_db['tgl_invoice'] = date('Y-m-d');
-			$data_db['tgl_penjualan'] = date('Y-m-d H:i:s');
+			// $data_db['tgl_invoice'] = date('Y-m-d', strtotime('10/11/2026'));
+			$data_db['tgl_invoice'] = format_datedb($_POST['tgl_invoice']);
+			$data_db['tgl_penjualan'] = format_datedb($_POST['tgl_invoice']);
 		} else {
-			$exp = explode('-', $_POST['tgl_invoice']);
-			$data_db['tgl_invoice'] = $exp[2] . '-' . $exp[1] . '-' . $exp[0];
+			// $exp = explode('-', $_POST['tgl_invoice']);
+			// $data_db['tgl_invoice'] = $exp[2] . '-' . $exp[1] . '-' . $exp[0];
 		}
 
 		//-- Invoice

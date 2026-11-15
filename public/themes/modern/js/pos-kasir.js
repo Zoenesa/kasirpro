@@ -932,7 +932,6 @@ $(document).ready(function()
 										show_toast('Data berhasil disimpan');
 										return;
 									}
-									
 									let html_content = '<div class="d-flex flex-column align-items-start">' + 
 											'<button class="btn btn-success mb-2 print-nota" data-id="' + data.id_penjualan + '"><i class="fas fa-print me-2"></i>Print Nota</button>' + 
 											'<button class="btn btn-warning mb-2 print-invoice" data-id="' + data.id_penjualan + '"><i class="fas fa-print me-2"></i>Cetak Invoice</button>' + 
