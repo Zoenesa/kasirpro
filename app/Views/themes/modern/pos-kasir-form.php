@@ -292,7 +292,7 @@
 						<div class="row mb-3">
 							<label class="col-sm-4 col-form-label">Tanggal Invoice</label>
 							<div class="col-sm-8">
-								<input class="form-control flatpickr tgl-invoice text-end number" type="text" id="tgl_invoice" placeholder="Tanggal Invoice" name="tgl_invoice" required="true">
+								<input class="form-control flatpickr tgl-invoice text-end flatpickr" type="text" id="tgl_invoice" name="tgl_invoice" placeholder="Tanggal Invoice" required="true">
 							</div>
 						</div>
 
@@ -321,7 +321,7 @@
 							</div>
 						</div>
 						<div class="form-group row mb-3">
-							<label class="col-sm-4 col-form-label">Kembali</label>
+							<label class="col-sm-4 col-form-label">Kembalian</label>
 							<div class="col-sm-8">
 								<div class="kembali">0</div>
 							</div>
