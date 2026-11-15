@@ -77,7 +77,7 @@ class Pos_kasir extends \App\Controllers\BaseController
 		}
 		$this->data['setting_kasir'] = $setting_kasir;
 
-		echo view('themes/modern/pos-kasir-form.php', $this->data);
+		return view('themes/modern/pos-kasir-form.php', $this->data);
 	}
 
 	private function validateFormSetting()
