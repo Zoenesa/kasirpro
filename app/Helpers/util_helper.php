@@ -411,6 +411,10 @@ function format_number($value, $is_float = false)
 
 	return $minus . number_format($value, 0, ',', '.');
 }
+function isToday($time) // midnight second
+{
+    return (strtotime($time) === strtotime('today'));
+}
 function format_datedb($tgl)
 {
 	if ($tgl == '0000-00-00 00:00:00' || !$tgl) {
