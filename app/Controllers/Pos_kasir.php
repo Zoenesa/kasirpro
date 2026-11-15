@@ -24,6 +24,9 @@ class Pos_kasir extends \App\Controllers\BaseController
 
 	public function index()
 	{
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.css');
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
 
 		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');

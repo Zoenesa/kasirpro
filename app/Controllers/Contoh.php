@@ -12,8 +12,12 @@ Class Contoh extends \App\Controllers\BaseController
         
 		$this->data['site_title'] = 'Contoh';
 
-		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
+
+		$this->addJs($this->config->baseURL . 'public/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css');
+		$this->addJs($this->config->baseURL . 'public/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js');
 
 		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');
@@ -27,6 +31,7 @@ Class Contoh extends \App\Controllers\BaseController
 		$this->addStyle($this->config->baseURL . 'public/vendors/jquery.select2/css/select2.min.css');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jquery.select2/bootstrap-5-theme/select2-bootstrap-5-theme.min.css');
 		$this->addJs($this->config->baseURL . 'public/vendors/filesaver/FileSaver.js');
+
 
 		$this->addJs($this->config->baseURL . 'public/themes/modern/js/wilayah.js');
 		$this->data['setting_kasir'] = $this->getSetting('kasir');

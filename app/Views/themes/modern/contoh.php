@@ -8,42 +8,63 @@
 	<div class="card-body">
 		<div class="form-group row mb-3">
 			<label class="col-sm-3 col-md-2 col-lg-3 col-xl-2 col-form-label">Tanggal</label>
-			<div class="col-sm-6">
+			<div class="col-sm-3">
 				<input class="form-control flatpickr tanggal-invoice flatpickr text-end" type="text" name="tgl_invoice" value="<?= date('d-m-Y') ?>" required="required" />
 			</div>
-			<div class="col-m-3">
-				<button class="btn btn-primary" id="btnTest">Simpan</button>
+			<div class="col-m-4">
+				<button class="btn btn-primary" id="btnTest">Modal</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-<form action="" method="post" class="form-horizontal" id="form-penjualan">
-	<div class="row-mb-3">
-
-	</div>
-</form>
-
 <script>
-	$(document).undelegate('#btnTest', 'click').delegate('#btnTest', 'click', function() {
+	$(document).ready(function() {
+		$('.flatpickr').flatpickr({
+			dateFormat: 'd-M-Y',
+			locale: 'id',
+			autoclose: true,
+			defaultDate: '<?= date('d-m-Y') ?>',
+		});
+		
+	});
+	
+
+
+	$(document).undelegate('#btnTest', 'click').delegate('#btnTest', 'click', 
+	function() 
+	{
 		bootbox.dialog({
-			title: 'Test',
-			message: 'Tanggal : ' + $('.tanggal-invoice').val(),
+			message: BootboxContent,
+			title: "Reschedule Rule",
 			buttons: {
-				ok: {
-					label: 'OK',
-					className: 'btn-primary'
-				}
-			}
+				main: {
+					label: "OK",
+					className: "btn-primary",
+					callback: function() {
+						var tglresult = $(document).find('#tgl_modal').val();
+						// alert(tglresult);
+					}
+				}}
+			})
 		});
 
-	});
-	$(function() {
-		$('.flatpickr').flatpickr({
-			enableTime: false,
-			dateFormat: "d-m-Y",
-			defaultDate: "today"
+		function BootboxContent() {
+		var frm_str = '<form id="some-form">'
+			+ '<div class="form-group">'
+			+ '<label for="date">Date</label>'
+			+ '<input id="tgl_modal" class="flatpickr span2 form-control input-sm" size="16" placeholder="dd-mm-yyyy" type="text">'
+			+ '</div>'
+			+ '</form>';
+
+		var object = $('<div/>').html(frm_str).contents();
+
+		object.find('.flatpickr').flatpickr({
+			dateFormat: 'd-M-Y',
+			locale: 'id',
+			autoclose: true,
+			defaultDate: '<?= date('d-m-Y') ?>',
 		});
-	});
-	</script>
+		return object;
+}
+</script>
