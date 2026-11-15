@@ -24,6 +24,7 @@ class Penjualan extends \App\Controllers\BaseController
 
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
+		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
 
 		$this->addJs($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.js');
 		$this->addStyle($this->config->baseURL . 'public/vendors/jwdmodal/jwdmodal.css');
