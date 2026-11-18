@@ -297,6 +297,7 @@ class PenjualanModel extends \App\Models\BaseModel
 		$data_db['jenis_bayar'] = $_POST['jenis_bayar'];
 		$data_db['harga_pokok'] = $total_harga_pokok;
 		$data_db['untung_rugi'] = $total_untung_rugi;
+		$data_db['jenis_bayar'] = $_POST['metode_bayar'];
 
 		// Invoice
 		$sql = 'LOCK TABLES penjualan WRITE, setting WRITE, penjualan_detail WRITE, penjualan_bayar WRITE';

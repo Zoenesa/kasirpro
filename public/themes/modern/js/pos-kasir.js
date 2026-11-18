@@ -908,7 +908,9 @@ $(document).ready(function()
 						
 						data = $form_list_barang.serialize();
 						data += '&' + $bootbox.find('.form-bayar').serialize();
-					
+						
+						console.log(data);
+						
 						$spinner = $('<div class="spinner-border spinner-border-sm me-2"></div>');
 						$btn_all = $bootbox.find('button');
 						$btn_submit = $bootbox.find('.submit');
@@ -923,6 +925,7 @@ $(document).ready(function()
 								$spinner.remove();
 								$btn_all.prop('disabled', false);
 								data = JSON.parse(data);
+								console.log(data);
 								if (data.status == 'ok') {
 									$btn_submit.prop('disabled', false);
 									if (setting_kasir.bersihkan_form == 'setelah_bayar') {
