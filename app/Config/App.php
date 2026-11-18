@@ -34,7 +34,7 @@ class App extends BaseConfig
 
     public $checkRoleAction = ['enable_global' => true, 'field' => 'id_user_input'];
 
-    public $idWilayahKelurahan = '35604';
+    public $idWilayahKelurahan = '50241';
 
     public $csrf = [
 
