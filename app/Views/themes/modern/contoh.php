@@ -1,24 +1,84 @@
+<div class="row">
+	<div class="card">
+		<div class="card-header">
+			<div class="card-title">
+				<h5 class="card-title">Contoh</h5>
+			</div>
+		</div>
+		<div class="card-body">
+			<div class="form-group row mb-3">
+				<label class="col-sm-3 col-md-2 col-lg-3 col-xl-2 col-form-label">Tanggal</label>
+				<div class="col-sm-3">
+					<input class="form-control flatpickr tanggal-invoice flatpickr text-end" type="text" name="tgl_invoice" value="<?= date('d-m-Y') ?>" required="required" />
+				</div>
+				<div class="col-m-4">
+					<button class="btn btn-primary" id="btnTest">Modal</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="card">
-	<div class="card-header">
-		<div class="card-title">
-			<h5 class="card-title">Contoh</h5>
-		</div>
-	</div>
-	<div class="card-body">
-		<div class="form-group row mb-3">
-			<label class="col-sm-3 col-md-2 col-lg-3 col-xl-2 col-form-label">Tanggal</label>
-			<div class="col-sm-3">
-				<input class="form-control flatpickr tanggal-invoice flatpickr text-end" type="text" name="tgl_invoice" value="<?= date('d-m-Y') ?>" required="required" />
-			</div>
-			<div class="col-m-4">
-				<button class="btn btn-primary" id="btnTest">Modal</button>
-			</div>
-		</div>
-	</div>
 </div>
 
+<div class="col-md-12 col-lg-8 mb-4">
+			<div class="card" style="height:100%; border-top: 3px solid #007bff;">
+				<div class="card-header">
+					<div class="card-header-start">
+						<h5 class="card-title">Penjualan Barang Minggu ini</h5>
+					</div>
+				</div>
+
+				<div class="card-body" style="display:flex">
+					<?php
+					if (empty($datapenjualan)) {
+						echo '<div class="alert alert-danger w-100">penjualan minggu ini tidak ditemukan</div>';
+					} else {
+					?>
+						<div class="table-responsive">
+							<table class="table table-border table-striped table-hover" data-export-title="Penjualan Barang Minggu ini" id="tablePenjualan">
+								<thead>
+									<tr>
+										<th class="text-center">Id Barang</th>
+										<th class="text-center">Nama Barang</th>
+									<?php
+									// echo json_encode($colWeek);
+										foreach($colWeek as $item ){
+											echo '<th class="text-center">'.$item['tgl_invoice'].'</th>';
+										}
+									?>
+										<!-- <th>Senin</th>
+										<th>Selasa</th>
+										<th>Rabu</th>
+										<th>Kamis</th>
+										<th>Jumat</th>
+										<th>Sabtu</th> -->
+										<th>Kamis</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php 
+										foreach($datapenjualan as $item => $cl){
+											echo '<tr>';
+											foreach($cl as $col){
+												echo '<td class="text-center">'.$col.'</td>';
+											}
+											echo '</tr>';
+										}
+										?>
+								</tbody>
+							</table>
+						</div>
+					<?php
+					}
+					?>
+				</div>
+			</div>
+</div>
+
+
+
 <script>
+	
 	$(document).ready(function() {
 		$('.flatpickr').flatpickr({
 			dateFormat: 'd-M-Y',
@@ -26,11 +86,7 @@
 			autoclose: true,
 			defaultDate: '<?= date('d-m-Y') ?>',
 		});
-		
 	});
-	
-
-
 	$(document).undelegate('#btnTest', 'click').delegate('#btnTest', 'click', 
 	function() 
 	{

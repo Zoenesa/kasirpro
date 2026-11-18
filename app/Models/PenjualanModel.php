@@ -221,6 +221,17 @@ class PenjualanModel extends \App\Models\BaseModel
 		return $result;
 	}
 
+	public function getTanggalMingguIni(){
+		$cmd = 'SELECT DISTINCT DATE_FORMAT(tgl_invoice, "%W") AS tgl_invoice FROM view_rekapmingguan';
+		$result = $this->db->query($cmd)->getResultArray();
+		return $result;
+	}
+
+	public function getPenjualanMingguIni(){
+		$result = $this->db->query('CALL penjualanbarangmingguini')->getResultArray();
+		return $result;
+	}
+
 	public function saveData()
 	{
 		// barang

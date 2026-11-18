@@ -10,8 +10,9 @@ Class Contoh extends \App\Controllers\BaseController
         parent::__construct();
         $this->model = new PenjualanModel;
         
-		$this->data['site_title'] = 'Contoh';
-
+		$this->data['site_title'] = 'Development Web Page';
+		$this->data['datapenjualan'] = '';
+		$this->data['colWeek'] = '';
 		$this->addStyle($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.min.css');
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/flatpickr.js');
 		$this->addJs($this->config->baseURL . 'public/vendors/flatpickr/dist/l10n/id.js');
@@ -40,7 +41,10 @@ Class Contoh extends \App\Controllers\BaseController
     public function index()
     {
         $this->hasPermissionPrefix('read');
-		$data = $this->data;
+		$this->data['datapenjualan'] = $this->model->getPenjualanMingguIni();
+		$this->data['colWeek'] = $this->model->getTanggalMingguIni();
         $this->view('contoh', $this->data);
     }
+
+
 }
