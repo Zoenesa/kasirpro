@@ -23,14 +23,14 @@ class App extends BaseConfig
      * environments.
      */
     // public $baseURL = 'https://cepatonline.com/demo/kasirpro/';
-    public $baseURL = 'https://depotaircisoka.store/kasirpro/';
+    public $baseURL = 'http://localhost/kasirpro/';
 
     // public $baseURL = 'http://192.168.1.6/kasirpro/';
 
     public $imagesPath = ROOTPATH . 'public/images/';
 
     // public $imagesURL = 'http://192.168.1.6/kasirpro/public/images/';
-    public $imagesURL = 'https://depotaircisoka.store/kasirpro/public/images/';
+    public $imagesURL = 'http://localhost/kasirpro/public/images/';
 
     public $checkRoleAction = ['enable_global' => true, 'field' => 'id_user_input'];
 

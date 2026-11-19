@@ -114,10 +114,10 @@
 												<input type="hidden" class="satuan" name="satuan[]" value="" />
 											</div>
 											<div class="d-flex flex-nowrap align-items-center">
-												<div class="input-group" style="width:128px">
-													<button type="button" style="width:32px;height:32px;font-size:70%" class="btn btn-clear-info rounded min-jml-barang" disabled="disabled"><i class="fas fa-minus"></i></button>
-													<input type="text" size="4" class="rounded form-control text-end qty me-2 ms-2" style="width:42px" name="qty[]" value="" />
-													<button type="button" style="width:32px;height:32px;font-size:70%" class="btn btn-clear-info rounded plus-jml-barang"><i class="fas fa-plus"></i></button>
+												<div class="input-group" style="width:155px">
+													<button type="button" style="width:32px;height:32px;font-size:100%" class="btn btn-clear-info rounded min-jml-barang" disabled="disabled"><i class="fas fa-minus"></i></button>
+													<input type="text" size="3" class="rounded form-control text-end qty me-2 ms-2" style="width:60px" name="qty[]" value="" />
+													<button type="button" style="width:32px;height:32px;font-size:100%" class="btn btn-clear-info rounded plus-jml-barang"><i class="fas fa-plus"></i></button>
 												</div>
 												<?php
 												if ($setting_kasir['qty_pengali'] == 'Y') { ?>
