@@ -36,7 +36,7 @@ class Database extends \CodeIgniter\Database\Config
 		'hostname' => 'localhost',
 		'username' => 'SUPERVISOR',
 		'password' => 'di5t0rti0n',
-		'database' => 'db_kasirpro',
+		'database' => 't_kasirpro',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
