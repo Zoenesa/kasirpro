@@ -1,20 +1,20 @@
-<div class="row mb-3">
+<div class="row mb-2">
 	<label class="col-sm-4">Nama Pelanggan</label>
 	<div class="col-sm-8"><?= $penjualan['nama_customer'] == null ? 'Umum' : $penjualan['nama_customer'] ?></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-2">
 	<label class="col-sm-4">No. Invoice</label>
 	<div class="col-sm-8"><?= $penjualan['no_invoice'] ?></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-2">
 	<label class="col-sm-4">Tanggal</label>
 	<div class="col-sm-8"><?= format_tanggal($penjualan['tgl_invoice'], 'dd-mm-yyyy') ?></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-2">
 	<label class="col-sm-4">Gudang</label>
 	<div class="col-sm-8"><?= $gudang[$penjualan['id_gudang']] ?></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-2">
 	<label class="col-sm-4">Harga</label>
 	<div class="col-sm-8"><?= $jenis_harga[$penjualan['id_jenis_harga']] ?></div>
 </div>
@@ -31,7 +31,7 @@
 						<div class="barang-pilih-nama-container">
 							<span class="nama-barang"><?= $val['nama_barang'] ?></span>
 							<div>
-								<span style="font-weight:bold;font-size:105%"><span>Rp. </span><span class="harga-satuan-text"><?= format_number($val['harga_satuan']) ?></span></span>
+								<span style="font-weight:bold;font-size:100%"><span>Rp. </span><span class="harga-satuan-text"><?= format_number($val['harga_satuan']) ?></span></span>
 							</div>
 						</div>
 					</div>
@@ -39,8 +39,8 @@
 				<td>
 					<div class="text-nowrap"><?= ($setting_kasir['qty_pengali'] == 'Y' ? format_number($val['qty'], true) . ' x ' .  format_number($val['qty_pengali'], true) . $setting_kasir['qty_pengali_suffix'] : format_number($val['qty'], true) . 'x') ?></div>
 				</td>
-				<td class="fw-bold" style="font-size:105%">Rp</td>
-				<td class="text-end fw-bold" style="font-size:105%">
+				<td class="fw-bold" style="font-size:100%">Rp. </td>
+				<td class="text-end fw-bold" style="font-size:100%">
 					<span class="harga-barang-text number-display"><?= format_number($val['harga_total']) ?></span>
 				</td>
 			</tr>
@@ -71,9 +71,9 @@
 	}
 	?>
 	<tbody id="subtotal-tbody">
-		<tr class="fw-bold row-number" style="font-size:105%">
+		<tr class="fw-bold row-number" style="font-size:100%">
 			<td colspan="2">Sub Total</td>
-			<td>Rp</td>
+			<td>Rp.</td>
 			<td>
 				<div id="subtotal-text" class="text-end number-display"><?= format_number($penjualan['sub_total']) ?></div>
 			</td>
@@ -95,7 +95,7 @@
 	<tbody>
 		<tr class="row-number">
 			<td colspan="2">Penyesuaian</td>
-			<td id="penyesuaian-simbol-rp">Rp</td>
+			<td id="penyesuaian-simbol-rp">Rp.</td>
 			<td>
 				<div id="penyesuaian-text" class="text-end number-display"><?= format_number($penjualan['penyesuaian']) ?></div>
 			</td>
@@ -105,7 +105,7 @@
 		?>
 			<tr class="row-number">
 				<td colspan="2"><?= $penjualan['pajak_display_text'] ?></td>
-				<td id="pajak-simbol-rp">Rp</td>
+				<td id="pajak-simbol-rp">Rp.</td>
 				<td>
 					<div id="pajak-text" class="text-end number-display"><?= format_number($penjualan['pajak_persen']) ?>%</div>
 				</td>
@@ -113,23 +113,23 @@
 		<?php
 		}
 		?>
-		<tr class="fw-bold text-info row-number" style="font-size:110%">
+		<tr class="fw-bold text-info row-number" style="font-size:105%">
 			<td colspan="2">Total</td>
-			<td>Rp</td>
+			<td>Rp.</td>
 			<td>
-				<div id="total-text" class="total-text text-end number-display"><?= format_number($penjualan['neto']) ?></div>
+				<div id="total-text" class="total-text text-info text-end number-display"><?= format_number($penjualan['neto']) ?></div>
 			</td>
 		</tr>
 	</tbody>
-	<tbody class="form-bayar" style="font-size:110%">
-		<tr>
+	<tbody class="form-bayar" style="font-size:100%">
+		<!-- <tr>
 			<td colspan="4">
 				<hr />
-			</td>
+			</td> -->
 		</tr>
 		<tr class="fw-bold text-success row-number">
-			<td colspan="2">Bayar</td>
-			<td>Rp</td>
+			<td colspan="2">Bayar <span>(<em><?= ucwords($penjualan['jenis_bayar']) ?></em>)</span></td>
+			<td>Rp.</td>
 			<td>
 				<div id="total-text" class="total-text text-end number-display"><?= format_number($penjualan['total_bayar']) ?></div>
 			</td>
@@ -139,7 +139,7 @@
 			echo
 			'<tr class="fw-bold text-danger">
 				<td colspan="2">Kurang</td>
-				<td>Rp</td>
+				<td>Rp.</td>
 				<td class="text-end kurang-bayar">
 					' . format_number($penjualan['kurang_bayar']) . '
 				</td>
@@ -150,7 +150,7 @@
 			echo
 			'<tr class="fw-bold">
 				<td colspan="2">Kembali</td>
-				<td>Rp</td>
+				<td>Rp.</td>
 				<td class="text-end kembali">
 					' . format_number($penjualan['kembali']) . '
 				</td>
