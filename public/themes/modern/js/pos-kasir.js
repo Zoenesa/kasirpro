@@ -76,12 +76,13 @@ $(document).ready(function()
 							// $('#tabel-data').find('th').eq(0).css('width', '64px');
 							
 							// 
-							let setting = {"order":[1,"asc"],"columnDefs":[{"targets":0,"orderable":false},{"targets":2,"orderable":false}]};
+							let setting = {"ordering":"false","columnDefs":[{"targets":0,"orderable":false},{"targets":2,"orderable":false}]};
 							$('#dataTables-setting').html(JSON.stringify(setting));
 							$thead.show();
 						} else {
-							dataTables_settings.pageLength = 12;
-							list_column.push({'data':'nama_barang'});
+							dataTables_settings.pageLength = 10;
+							// list_column.push({'data':'nama_barang'});
+							list_column.push({'data':'id_barang'});
 							$('#dataTables-column').html(JSON.stringify(list_column));
 							
 							$table = $('#tabel-data').removeClass('table-hover');
@@ -89,7 +90,7 @@ $(document).ready(function()
 							$thead_tr = $thead.find('tr').empty();
 							$thead_tr.append('<th scope="col">Barang</th>');
 							$('.tabel-barang-container').addClass('table-grid');
-							let setting = {"order":[0,"asc"],"columnDefs":[]};;
+							let setting = {"order":[0,'asc'],"columnDefs":[]};;
 							$('#dataTables-setting').html(JSON.stringify(setting));
 						}
 						// return;
@@ -1242,8 +1243,8 @@ $(document).ready(function()
 			return;
 		}
 		
-		suara = new Audio(base_url + 'public/files/audio/beep.wav');
-		// suara.play();
+		//suara = new Audio(base_url + 'public/files/audio/beep.wav');
+		//suara.play();
 		
 		$('.barang-pilih-empty').hide();
 		$('.btn-bayar').prop('disabled', false);

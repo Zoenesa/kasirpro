@@ -14,7 +14,10 @@
 				];
 				$settings['order'] = [1, 'asc'];
 			} else {
-				$column = ['nama_barang' => 'Nama Barang'];
+				$column = [
+					'id_barang' =>'id barang',
+					// 'nama_barang' => 'Nama Barang'
+				];
 				$settings['order'] = [0, 'asc'];
 			}
 
@@ -43,6 +46,7 @@
 						<?php
 						} else {
 						?>
+							<!-- <th scope="col">Id</th> -->
 							<th scope="col">Barang</th>
 						<?php
 						}
@@ -54,6 +58,7 @@
 			foreach ($column as $key => $val) {
 				$column_dt[] = ['data' => $key];
 			}
+			echo '';
 			?>
 			<span id="dataTables-column" style="display:none"><?= json_encode($column_dt) ?></span>
 			<span id="dataTables-setting" style="display:none"><?= json_encode($settings) ?></span>

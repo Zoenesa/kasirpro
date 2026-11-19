@@ -181,6 +181,7 @@ class Pos_kasir extends \App\Controllers\BaseController
 					<div class="product-prop">
 						<h6>' . $val['nama_barang'] . '</h6>
 						<span class="detail-barang" style="display:none">' . json_encode($val) . '</span>
+						<span class="price text-bg-primary rounded mt-2 fw-bold" style="">' . $val['id_barang'] . '</span>
 						<div class="mt-2">
 							<small style="padding: 1px 7px;" class="price text-bg-primary rounded mt-2 fw-bold">'
 					. format_number($val['harga']) .
@@ -191,7 +192,7 @@ class Pos_kasir extends \App\Controllers\BaseController
 			}
 			$list_barang .= '</div>';
 			$query['data'] = [];
-			$query['data'][] = ['nama_barang' => $list_barang];
+			$query['data'][] = ['id_barang' => $list_barang];
 		}
 
 		$result['data'] = $query['data'];
