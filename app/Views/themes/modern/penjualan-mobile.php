@@ -7,11 +7,12 @@
 		$column =[
 					'ignore_urut' => 'No'
 					, 'no_invoice' => 'No. Invoice'
+					, 'nama_customer' => 'Nama Customer'
 					, 'tgl_invoice' => 'Tanggal'
 					, 'neto' => 'Total'
 				];
 		
-		$settings['order'] = [[2, 'desc']];
+		$settings['order'] = [[1, 'desc']];
 		$index = 0;
 		$th = '';
 		helper('html');
@@ -30,6 +31,7 @@
 				<tr>
 					<th>No</th>
 					<th scope="col">No. Invoice</th>
+					<th scope="col">Nama Customer</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">Total</th>
 				</tr>
@@ -86,7 +88,7 @@
 				<div class="btn-detail btn-container" <?=$display_detail?>>
 					<?php
 					if (has_permission('update_all', 'penjualan-mobile')) { ?>
-						<a href="#" class="link-edit btn btn-info me-1 disabled" disabled><i class="fas fa-edit me-2"></i>Edit</a>
+						<a href="#" class="link-edit btn btn-info me-1 pt-3 disabled" disabled><i class="fas fa-edit me-2"></i>Edit</a>
 					<?php
 					}
 					?>
