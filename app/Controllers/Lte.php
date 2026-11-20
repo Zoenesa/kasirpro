@@ -16,8 +16,9 @@ Class Lte extends BaseController
 
     public function index()
     {
-		$this->hasPermission('read');
-		
-		return view('themes/lte/dasbor', $this->data);
+		$this->hasPermission('read');		
+		echo view('themes/lte/lte_header', $this->data);
+		echo view('themes/lte/dasbor', $this->data);
+		echo view('themes/lte/lte_footer');
     }
 }
