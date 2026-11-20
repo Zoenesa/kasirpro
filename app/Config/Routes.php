@@ -16,7 +16,9 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->get('/', 'Catalog::index');
+$routes->get('/', 'Login::index');
+//Katalog
+// $routes->get('/', 'Login::index');
 $routes->get('login', 'Login::index');
 $routes->get('licenses', 'License::index');
 $routes->post('licenses/activate', 'License::activate');
