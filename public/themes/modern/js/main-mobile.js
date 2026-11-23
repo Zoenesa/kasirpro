@@ -33,7 +33,7 @@ const dataTables_settings =
 	"bFilter": true,
 	"bInfo": false,
 	"fixedHeader": false,
-	"language": { search: '', searchPlaceholder: "Cari..." },
+	"language": { search: '', searchPlaceholder: "Cari kode barang... " },
 	"sDom": "<'row'<'col-sm-12'<'form-group'<f>>>>tr<'row'<'col-sm-12'<'pull-left'i><'pull-right'p><'clearfix'>>>"
 	// "dom": '<"row"<"col-sm-4"l><"col-sm-4 text-center"p><"col-sm-4"f>>tip'
 }
@@ -67,7 +67,7 @@ function loadDataTables(url, add_btn_config = false) {
 		}
 	}
 
-	dataTables_settings.searchDelay = 300;
+	dataTables_settings.searchDelay = 0;
 	dataTables = $('#tabel-data').DataTable(dataTables_settings);
 	$filter = $('#tabel-data_filter');
 	$input = $filter.find('input').eq(0);
@@ -101,7 +101,7 @@ function loadDataTables(url, add_btn_config = false) {
 		value = this.value;
 		cariBarang = setTimeout(function () {
 			dataTables.search(value).draw();
-		}, 300);
+		}, 10);
 	});
 }
 

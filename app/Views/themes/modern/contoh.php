@@ -17,7 +17,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <div class="col-lg-12 col-lg-8 mb-4">
@@ -91,9 +90,13 @@
 	?>
 </span>
 
-
 <script>
-	
+	document.onkeyup = function () {
+	var e = e || window.event; // for IE to cover IEs window event-object
+	if(e.altKey && e.which == 65) {
+		$('#btnTest').trigger('click');
+		return false;
+	}}
 	$(document).ready(function() {
 		$('.flatpickr').flatpickr({
 			dateFormat: 'd-M-Y',
@@ -102,6 +105,7 @@
 			defaultDate: '<?= date('d-m-Y') ?>',
 		});
 	});
+
 	$(document).undelegate('#btnTest', 'click').delegate('#btnTest', 'click', 
 	function() 
 	{

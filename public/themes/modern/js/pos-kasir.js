@@ -1,3 +1,31 @@
+document.onkeyup = function () {
+	var e = e || window.event; // for IE to cover IEs window event-object
+	//crtl B
+
+	if(e.altKey && e.which == 66) {
+		// $('.barang-pilih-actions-trigger').trigger('click');
+		$('.show-left-panel').trigger('click');
+		return false;
+	}
+	if(e.ctrlKey && e.which == 66) {
+		$('.btn-bayar').trigger('click');
+		return false;
+	}
+	if (e.ctrlKey && e.which == '0xD') {
+		$('.bootbox .btn-success').trigger('click');
+	}
+	if (e.ctrlKey && e.which == '0x72') {
+		$('.cari-customer').trigger('click');
+		// $('div.dataTables_filter input', table.table().container()).focus();
+	}
+	
+}
+
+$(document).on("submit", ".bootbox form", function(e) {
+    e.preventDefault();
+    $(".bootbox .btn-success").click();
+});
+
 $(document).ready(function() 
 {
 	if ($('#setting-kasir').length > 0) {
@@ -167,7 +195,10 @@ $(document).ready(function()
 			{
 				$panel = $modal_customer.find('.header-panel');
 				$panel.append('<div class="px-4 py-3 d-grid"><button class="btn btn-outline-warning add-customer py-2"><i class="fas fa-plus me-2"></i>Add Customer</button></div><hr class="p-0 m-0"/>');
+				var table = $('#table-result').DataTable();
+				$('div.dataTables_filter input', table.table().container()).focus();
 			}
+			
 		});
 		
 		$(document)
@@ -890,7 +921,7 @@ $(document).ready(function()
 			locale: 'id',
 			buttons: {
 				cancel: {
-					label: 'Close',
+					label: '<kbd>Esc</kbd> <strong> Close</strong>',
 					callback: function() {
 						if (setting_kasir.bersihkan_form == 'setelah_klik_close') 
 						{
@@ -899,7 +930,7 @@ $(document).ready(function()
 					}
 				},
 				success: {
-					label: 'Bayar',
+					label: '<kbd>Ctrl</kbd> + <kbd>Enter</kbd>  <strong> Bayar</strong>',
 					className: 'btn-success submit',
 					callback: function() 
 					{

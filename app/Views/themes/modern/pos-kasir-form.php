@@ -74,7 +74,7 @@
 					<div class="title cari-customer"><span class="cari-customer" id="nama-customer">Umum</span></div>
 					<button class="btn btn-clear-warning del-customer me-2 rounded-circle border border-0" id="del-customer" style="display:none"><i class="fas fa-times"></i></button>
 					<button class="show-mobile-d-flex btn-clear-success show-left-panel rounded-circle me-2 border-0"><i class="fas fa-search"></i></button>
-					<!-- <button class="btn btn-clear-danger del-barang-pilih rounded-circle border border-0"><i class="fas fa-eraser"></i></button> -->
+					<!-- <button class="btn btn-clear-danger del-barang-pilih rounded-circle border border-0 pt-2"><i class="fas fa-eraser"></i></button> -->
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,11 @@
 						<div class="pos-empty-state">
 							<div class="pos-empty-icon"><i class="fas fa-basket-shopping" aria-hidden="true"></i></div>
 							<p class="pos-empty-kicker">Keranjang kosong</p>
-							<p class="pos-empty-copy">Pilih produk untuk memulai transaksi.</p>
+							<p class="pos-empty-copy mb-2">Pilih produk untuk memulai transaksi.</p>
+							<p class="pos-empty-copy mb-2 text-start"><kbd>Ctrl</kbd> + <kbd>F3</kbd> <span>untuk mencari customer</span></p>
+							<p class="pos-empty-copy mb-2 text-start"><kbd>Ctrl</kbd> + <kbd>B</kbd> <span>untuk melanjutkan pembayaran</span></p>
+							<p class="pos-empty-copy mb-2 text-start"><kbd>Alt</kbd> + <kbd>B</kbd> <span>untuk pilih barang</span></p>
+							
 						</div>
 					</div>
 					<form id="barang-pilih-form" style="display:none">
@@ -347,7 +351,7 @@
 			<div class="col-sm-12">
 				<div class="right-panel-footer shadow-sm rounded-bottom d-flex">
 					<button class="btn btn-clear-danger del-barang-pilih border border-0" style="border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 0; width: 20%;"><i class="fas fa-trash-alt"></i></button>
-					<button class="btn btn-primary btn-bayar btn-lg flex-grow-1" style="border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0px;" disabled>Bayar Rp <span class="total-text">0</span></button>
+					<button class="btn btn-primary btn-bayar btn-lg flex-grow-1" style="border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0px;" disabled><kbd>Crtl</kbd> + <kbd>B</kbd> Bayar Rp <span class="total-text">0</span></button>
 				</div>
 			</div>
 		</div>

@@ -1,10 +1,3 @@
-/**
-* App		: Pos Kasir Pro
-* Author	: Team Cepat Online
-* Year		: 2021-2022
-* Website	: cepatonline.com
-*/
-
 jQuery(document).ready(function () {
 
 	if ($('#table-result').length) {
@@ -133,7 +126,5 @@ jQuery(document).ready(function () {
 				no++;
 			});
 		}
-
-
 	})
 });
