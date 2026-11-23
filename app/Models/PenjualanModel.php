@@ -228,7 +228,12 @@ class PenjualanModel extends \App\Models\BaseModel
 	}
 
 	public function getPenjualanMingguIni(){
-		$arr = Array('2026-11-16', '2026-11-21');
+		$custom_date = strtotime(date('Y-m-d', time())); 
+		$week_start = date('Y-m-d', strtotime('this week monday', $custom_date));
+		$week_end = date('Y-m-d', strtotime('this week sunday', $custom_date));
+
+		$arr = Array($week_start, $week_end);
+		// print_r($arr); die;
 		// $result = $this->db->query('CALL penjualanbarangmingguini')->getResultArray();
 		$result = $this->db->query('CALL ViewPenjualanMingguan(?,?)', $arr)->getResultArray();
 		return $result;

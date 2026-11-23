@@ -49,7 +49,7 @@
 									// echo substr($tanggal, 0, -3).PHP_EOL;
 									// print_r($arrtgl);
 										for ($i=0; $i < 6; $i++) { 
-											$custom_date = strtotime( date('d-m-Y', strtotime('2026-11-16'))); 
+											$custom_date = strtotime( date('d-m-Y', strtotime(time()))); 
 											$tgl = date('Y-m-d', strtotime($week_start. ' + '. $i. ' days'));
 											echo '<th>'.formatTanggalID($tgl, 'eeee').'</th>';
 										}
