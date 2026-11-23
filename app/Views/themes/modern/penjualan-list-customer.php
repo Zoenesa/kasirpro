@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 $column =[
 			'ignore_urut' => 'No'
 			, 'nama_customer' => 'Nama'
@@ -17,9 +16,7 @@ foreach ($column as $key => $val) {
 		$settings['columnDefs'][] = ["targets" => $index, "orderable" => false];
 	}
 	$index++;
-}
-
-?>
+}?>
 
 <table id="jwdmodal-table-result" class="table display table-striped table-bordered table-hover" style="width:100%">
 <thead>
@@ -27,11 +24,6 @@ foreach ($column as $key => $val) {
 		<?=$th?>
 	</tr>
 </thead>
-<tfoot>
-	<tr>
-		<?=$th?>
-	</tr>
-</tfoot>
 </table>
 <?php
 	foreach ($column as $key => $val) {

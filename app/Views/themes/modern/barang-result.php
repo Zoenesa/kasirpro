@@ -64,11 +64,6 @@
 				<?=$th?>
 			</tr>
 		</thead>
-		<tfoot>
-			<tr>
-				<?=$th?>
-			</tr>
-		</tfoot>
 		</table>
 		<?php
 			foreach ($column as $key => $val) {
@@ -76,7 +71,6 @@
 			}
 			
 			$tampilkan = !empty($_GET['tampilkan']) && $_GET['tampilkan'] == 'dibawah_stok_minimum' ? '?tampilkan=' . $_GET['tampilkan'] : '';
-			
 		?>
 		</div>
 		<span id="dataTables-column" style="display:none"><?=json_encode($column_dt)?></span>
