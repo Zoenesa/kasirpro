@@ -27,6 +27,7 @@ if (empty($_SESSION['user'])) {
 	<link rel="stylesheet" type="text/css" href="<?= $config->baseURL . 'public/vendors/sweetalert2/sweetalert2.min.css?r=' . time() ?>" />
 	<link rel="stylesheet" type="text/css" href="<?= $config->baseURL . 'public/vendors/overlayscrollbars/OverlayScrollbars.min.css?r=' . time() ?>" />
 	<link rel="stylesheet" type="text/css" href="<?= $config->baseURL . 'public/themes/modern/builtin/css/site.css?r=' . time() ?>" />
+	<link rel="stylesheet" type="text/css" href="<?= $config->baseURL . 'public/vendors/datatables/dist/css/dataTables.bootstrap.min.css?r='.time() ?>">
 
 	<!-- Data Tables -->
 	<link rel="stylesheet" type="text/css" href="<?= $config->baseURL . 'public/vendors/datatables/dist/css/dataTables.bootstrap5.min.css?r=' . time() ?>" />

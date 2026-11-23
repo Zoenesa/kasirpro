@@ -33,6 +33,7 @@
     ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="./js/adminlte.js"></script>
+    <script src="<?= $config->baseURL.'public/vendors/datatables/dist/js/datatables.bootstrap.js'?>"></script>
     <!--end::Required Plugin(AdminLTE)-->
     <!--begin::OverlayScrollbars Configure-->
     <script>
