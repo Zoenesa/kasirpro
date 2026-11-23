@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="col-md-12 col-lg-8 mb-4">
+<div class="col-lg-12 col-lg-8 mb-4">
 			<div class="card" style="height:100%; border-top: 3px solid #007bff;">
 				<div class="card-header">
 					<div class="card-header-start">
@@ -41,9 +41,18 @@
 										<th class="text-center">Id Barang</th>
 										<th class="text-center">Nama Barang</th>
 									<?php
-									// echo json_encode($colWeek);
-										foreach($colWeek as $item ){
-											echo '<th class="text-center">'.$item['tgl_invoice'].'</th>';
+
+									
+									$custom_date = strtotime( date('d-m-Y', strtotime('2026-11-16'))); 
+									$week_start = date('d-m-Y', strtotime('this week monday', $custom_date));
+									
+									$tgl = '';
+									// echo substr($tanggal, 0, -3).PHP_EOL;
+									// print_r($arrtgl);
+										for ($i=0; $i < 6; $i++) { 
+											$custom_date = strtotime( date('d-m-Y', strtotime('2026-11-16'))); 
+											$tgl = date('Y-m-d', strtotime($week_start. ' + '. $i. ' days'));
+											echo '<th>'.formatTanggalID($tgl, 'eeee').'</th>';
 										}
 									?>
 										<!-- <th>Senin</th>
@@ -76,6 +85,11 @@
 			</div>
 </div>
 
+<span>
+	<?php 
+	
+	?>
+</span>
 
 
 <script>

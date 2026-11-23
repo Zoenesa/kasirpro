@@ -228,7 +228,9 @@ class PenjualanModel extends \App\Models\BaseModel
 	}
 
 	public function getPenjualanMingguIni(){
-		$result = $this->db->query('CALL penjualanbarangmingguini')->getResultArray();
+		$arr = Array('2026-11-16', '2026-11-21');
+		// $result = $this->db->query('CALL penjualanbarangmingguini')->getResultArray();
+		$result = $this->db->query('CALL ViewPenjualanMingguan(?,?)', $arr)->getResultArray();
 		return $result;
 	}
 

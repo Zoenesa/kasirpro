@@ -43,8 +43,24 @@ Class Contoh extends \App\Controllers\BaseController
         $this->hasPermissionPrefix('read');
 		$this->data['datapenjualan'] = $this->model->getPenjualanMingguIni();
 		$this->data['colWeek'] = $this->model->getTanggalMingguIni();
+		// print_r($this->data['colWeek']);
+		// die;
         $this->view('contoh', $this->data);
     }
-
-
+	
+	public function PopulateTanggalMingguan($tgl_awal){
+		
+		$custom_date = strtotime( date('d-m-Y', strtotime($tgl_awal))); 
+		$week_start = date('d-m-Y', strtotime('this week monday', $custom_date));
+		$week_end = date('d-m-Y', strtotime('this week sunday', $custom_date));
+		
+		$arrtgl[] = '';
+		$tanggal = '';
+		for ($i=0; $i < 7 ; $i++) { 
+			$tgl = date('Y-m-d', strtotime($week_start. ' + '. $i. ' days'));
+			$tanggal .= 'SUM(CASE WHEN `tgl_invoice`="'. date('Y-m-d', strtotime($week_start. ' + '. $i. ' days')). '" THEN subtotal_barang END) AS `'.formatTanggalID($tgl, 'eee, dd-MMM-Y').'`,'.PHP_EOL;
+			array_push($arrtgl, $tgl);
+		}
+		return substr($tanggal, 0, -3).PHP_EOL;
+	}
 }
