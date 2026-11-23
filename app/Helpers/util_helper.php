@@ -98,6 +98,12 @@ if (!function_exists('set_value')) {
 	}
 }
 
+function formatTanggalID($tanggalstring, $formatPattern = 'dd-MMM-yyyy'){
+	$tglfmt = new IntlDateFormatter('id_ID');
+	$tglfmt->setPattern($formatPattern);
+	return datefmt_format($tglfmt, strtotime($tanggalstring));
+}
+
 
 function format_tanggal($date, $format = 'dd mmmm yyyy')
 {
