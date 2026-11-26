@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;padding:12px;color:var(--content-color-primary,#333);background:transparent}
+  .title-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;border-bottom:2px solid #007bff;padding-bottom:8px}
+  .title-bar h2{font-size:15px;font-weight:700;color:#007bff}
+  .title-bar .sub{font-size:11px;color:var(--content-color-secondary,#888)}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+  .kpi{border-radius:8px;padding:12px;position:relative;overflow:hidden;cursor:default}
+  .kpi-items{background:linear-gradient(135deg,#f093fb,#f5576c)}
+  .kpi-trx{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+  .kpi-income{background:linear-gradient(135deg,#43e97b,#38f9d7)}
+  .kpi-cust{background:linear-gradient(135deg,#fa709a,#fee140)}
+  .kpi .val{font-size:18px;font-weight:800;color:#fff;line-height:1.2}
+  .kpi .lbl{font-size:10px;color:rgba(255,255,255,0.85);margin-top:2px;font-weight:500}
+  .kpi .chg{font-size:10px;color:rgba(255,255,255,0.9);margin-top:4px;display:flex;align-items:center;gap:3px}
+  .kpi .year-badge{position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.25);border-radius:4px;padding:2px 6px;font-size:9px;color:#fff;font-weight:600}
+  .charts-row{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:12px}
+  .chart-card{background:var(--background-color-secondary,#f7f7f7);border-radius:8px;padding:10px;border:1px solid var(--border-color-default,#e0e0e0)}
+  .chart-card.full{grid-column:1/-1}
+  .card-title{font-size:11px;font-weight:700;color:#007bff;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+  .chart-wrap{position:relative;height:160px}
+  .chart-wrap-sm{position:relative;height:140px}
+  .pie-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .tables-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th{background:#007bff;color:#fff;padding:4px 6px;text-align:left;font-weight:600;font-size:10px}
+  td{padding:4px 6px;border-bottom:1px solid var(--border-color-default,#eee)}
+  tr:hover td{background:rgba(0,123,255,0.07)}
+  .num{text-align:right;font-weight:600;color:#007bff}
+  .badge-down{color:#f5576c;font-weight:700}
+  .tab-btn{background:none;border:none;padding:3px 8px;border-radius:4px;font-size:10px;cursor:pointer;color:var(--content-color-secondary,#888);font-weight:500}
+  .tab-btn.active{background:#007bff;color:#fff}
+  .legend-wrap{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .legend-item{display:flex;align-items:center;gap:3px;font-size:9px;color:var(--content-color-secondary,#888);cursor:pointer}
+  .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  @media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr)}.charts-row,.pie-row,.tables-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="title-bar">
+  <h2>KasirPro — Dashboard AG RO Air Minum &amp; Gas</h2>
+  <span class="sub">GET localhost:8081/kasirpro/dashboard &nbsp;|&nbsp; 200 OK &nbsp;|&nbsp; 1168ms &nbsp;|&nbsp; 2026</span>
+</div>
+
+<!-- KPI Cards -->
+<div class="kpi-row">
+  <div class="kpi kpi-items">
+    <span class="year-badge">2026</span>
+    <div class="val">3.790</div>
+    <div class="lbl">Total Item Terjual</div>
+    <div class="chg"><span class="badge-down" style="color:#fff;opacity:.9">&#x2193; -89%</span><span style="opacity:.7">vs tahun lalu</span></div>
+  </div>
+  <div class="kpi kpi-trx">
+    <span class="year-badge">2026</span>
+    <div class="val">181</div>
+    <div class="lbl">Total Transaksi</div>
+    <div class="chg">&#x2193; -89% vs tahun lalu</div>
+  </div>
+  <div class="kpi kpi-income">
+    <span class="year-badge">2026</span>
+    <div class="val">Rp 18,798,000</div>
+    <div class="lbl">Total Income</div>
+    <div class="chg">&#x2193; -88% vs tahun lalu</div>
+  </div>
+  <div class="kpi kpi-cust">
+    <span class="year-badge">2026</span>
+    <div class="val">89</div>
+    <div class="lbl">Pelanggan Aktif</div>
+    <div class="chg">&#x2193; -21% vs tahun lalu</div>
+  </div>
+</div>
+
+<!-- Monthly + Yearly -->
+<div class="charts-row">
+  <div class="chart-card">
+    <div class="card-title">
+      Penjualan Perbulan
+      <span>
+        <button class="tab-btn active" id="btn2024" onclick="switchYear('2024')">2024</button>
+        <button class="tab-btn" id="btn2025" onclick="switchYear('2025')">2025</button>
+        <button class="tab-btn" id="btn2026" onclick="switchYear('2026')">2026</button>
+      </span>
+    </div>
+    <div class="chart-wrap"><canvas id="barChart" role="img" aria-label="Penjualan per bulan"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="card-title">Total Penjualan Per Tahun</div>
+    <div class="chart-wrap"><canvas id="yearChart" role="img" aria-label="Total penjualan per tahun"></canvas></div>
+  </div>
+</div>
+
+<!-- Pie charts row -->
+<div class="pie-row">
+  <div class="chart-card">
+    <div class="card-title">Barang Paling Banyak Terjual</div>
+    <div class="chart-wrap-sm"><canvas id="itemPieChart" role="img" aria-label="Item terjual"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="card-title">Komposisi Kategori</div>
+    <div class="chart-wrap-sm"><canvas id="katChart" role="img" aria-label="Kategori barang"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="card-title">Status Stok Barang</div>
+    <div class="chart-wrap-sm"><canvas id="stokChart" role="img" aria-label="Status stok"></canvas></div>
+  </div>
+</div>
+
+<!-- Tables -->
+<div class="tables-row">
+  <div class="chart-card">
+    <div class="card-title">Pelanggan Terbesar (2026)</div>
+    <table>
+      <thead><tr><th>Nama</th><th style="text-align:right">Total (Rp)</th></tr></thead>
+      <tbody id="custTable"></tbody>
+    </table>
+  </div>
+  <div class="chart-card">
+    <div class="card-title">Piutang Terbesar</div>
+    <table>
+      <thead><tr><th>Nama</th><th style="text-align:right">Piutang (Rp)</th></tr></thead>
+      <tbody id="piutangTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const salesData = {
+  "2024":[0,0,19878000,28096500,45886000,40734500,44196000,45155500,43960500,45237400,36801500,28647500],
+  "2025":[22481900,0,0,0,0,0,0,28907500,52186000,55695500,1852000,0],
+  "2026":[0,0,0,0,0,0,0,0,0,0,18798000,0]
+};
+const totalByYear = {"2024":378593400,"2025":161122900,"2026":18798000};
+const topItems = {labels:["Air RO","Isi Ulang Gas 3Kg","Air isi ulang","Air Aqua Galon","Galon Aqua"],data:[152,73,32,31,2]};
+const kategori = {labels:["Air Minum","Gas LPG","Galon Aqua"],data:[215,73,2]};
+const stokData = {labels:["Di Bawah Stok Min","Di Atas Stok Min"],data:[41,5]};
+const custData = [["Ratih",2186000],["Leila Madani",925000],["Pabrik Xin Zihong",828500],["Sumardi Bantar Panjang",812000],["Jumadi Triraksa",728500]];
+const piutangData = [["Sumardi Bantar Panjang",675000],["Pabrik Xin Zihong",609000],["Mus Tenjo City",232000],["Bu Haji Aas",171000],["Jumadi Triraksa",142500]];
+const palette = ['#4facfe','#43e97b','#f093fb','#f5576c','#fa709a','#fee140','#38f9d7','#667eea','#764ba2','#a8edea'];
+const palettePie = ['#4facfe','#43e97b','#f5576c','#fa709a','#fee140'];
+
+function fmt(n){return n.toLocaleString('id-ID')}
+
+// Bar chart
+const barCtx = document.getElementById('barChart').getContext('2d');
+const barChart = new Chart(barCtx,{
+  type:'bar',
+  data:{labels:months,datasets:[{label:'Penjualan (Rp)',data:salesData['2024'],backgroundColor:'rgba(79,172,254,0.75)',borderColor:'#4facfe',borderWidth:1,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>'Rp '+fmt(c.raw)}}},scales:{y:{ticks:{callback:(v)=>v>=1e6?'Rp '+(v/1e6).toFixed(0)+'jt':'Rp '+v,font:{size:9}},grid:{color:'rgba(128,128,128,0.1)'}},x:{ticks:{font:{size:9}}}}}
+});
+let curYear = '2024';
+function switchYear(yr){
+  curYear = yr;
+  barChart.data.datasets[0].data = salesData[yr];
+  barChart.data.datasets[0].label = 'Penjualan '+yr;
+  barChart.update();
+  ['2024','2025','2026'].forEach(y=>{
+    const b = document.getElementById('btn'+y);
+    b.className = 'tab-btn'+(y===yr?' active':'');
+  });
+}
+
+// Year chart
+const yearCtx = document.getElementById('yearChart').getContext('2d');
+new Chart(yearCtx,{
+  type:'bar',
+  data:{labels:['2024','2025','2026'],datasets:[{label:'Total (Rp)',data:[totalByYear['2024'],totalByYear['2025'],totalByYear['2026']],backgroundColor:['#4facfe','#43e97b','#f5576c'],borderRadius:6}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>'Rp '+fmt(c.raw)}}},scales:{y:{ticks:{callback:(v)=>'Rp '+(v/1e6).toFixed(0)+'jt',font:{size:9}},grid:{color:'rgba(128,128,128,0.1)'}},x:{ticks:{font:{size:9}}}}}
+});
+
+// Item pie
+const itemCtx = document.getElementById('itemPieChart').getContext('2d');
+new Chart(itemCtx,{
+  type:'doughnut',
+  data:{labels:topItems.labels,datasets:[{data:topItems.data,backgroundColor:palettePie,borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},boxWidth:10,padding:4}},tooltip:{callbacks:{label:(c)=>c.label+': '+c.raw+' unit'}}}}
+});
+
+// Category
+const katCtx = document.getElementById('katChart').getContext('2d');
+new Chart(katCtx,{
+  type:'doughnut',
+  data:{labels:kategori.labels,datasets:[{data:kategori.data,backgroundColor:['#4facfe','#f5576c','#43e97b'],borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},boxWidth:10,padding:4}},tooltip:{callbacks:{label:(c)=>c.label+': '+c.raw+' unit'}}}}
+});
+
+// Stok
+const stokCtx = document.getElementById('stokChart').getContext('2d');
+new Chart(stokCtx,{
+  type:'doughnut',
+  data:{labels:stokData.labels,datasets:[{data:stokData.data,backgroundColor:['#f5576c','#43e97b'],borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},boxWidth:10,padding:4}},tooltip:{callbacks:{label:(c)=>c.label+': '+c.raw+' item'}}}}
+});
+
+// Tables
+const custTbody = document.getElementById('custTable');
+custData.forEach(([nm,val],i)=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td>'+(i+1)+'. '+nm+'</td><td class="num">'+fmt(val)+'</td>';
+  custTbody.appendChild(tr);
+});
+const piutTbody = document.getElementById('piutangTable');
+piutangData.forEach(([nm,val],i)=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td>'+(i+1)+'. '+nm+'</td><td class="num" style="color:#f5576c">'+fmt(val)+'</td>';
+  piutTbody.appendChild(tr);
+});
+</script>
+</body>
+</html>
