@@ -11,7 +11,7 @@
  Target Server Version : 50737 (5.7.37-log)
  File Encoding         : 65001
 
- Date: 23/11/2026 14:32:46
+ Date: 27/11/2026 07:05:23
 */
 
 SET NAMES utf8mb4;
@@ -39,13 +39,80 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_pendapatanharian` A
 -- View structure for view_rekapmingguan
 -- ----------------------------
 DROP VIEW IF EXISTS `view_rekapmingguan`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_rekapmingguan` AS select `p`.`id_penjualan` AS `id_penjualan`,`p`.`no_invoice` AS `no_invoice`,`p`.`tgl_invoice` AS `tgl_invoice`,date_format(`p`.`tgl_invoice`,'%W') AS `hari`,`pd`.`id_barang` AS `id_barang`,`b`.`nama_barang` AS `nama_barang`,sum(`pd`.`qty`) AS `subtotal_barang`,count(distinct `p`.`id_customer`) AS `jml_transaksi`,`p`.`tgl_input` AS `tgl_input` from (((`penjualan` `p` join `customer` `c` on((`p`.`id_customer` = `c`.`id_customer`))) join `penjualan_detail` `pd` on((`p`.`id_penjualan` = `pd`.`id_penjualan`))) join `barang` `b` on((`pd`.`id_barang` = `b`.`id_barang`))) group by `p`.`tgl_invoice`,`pd`.`id_barang` order by `p`.`tgl_invoice`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_rekapmingguan` AS select `p`.`id_penjualan` AS `id_penjualan`,`p`.`no_invoice` AS `no_invoice`,`p`.`tgl_invoice` AS `tgl_invoice`,`p`.`id_customer` AS `id_customer`,`c`.`nama_customer` AS `nama_customer`,date_format(`p`.`tgl_invoice`,'%W') AS `hari`,`pd`.`id_barang` AS `id_barang`,`b`.`nama_barang` AS `nama_barang`,sum(`pd`.`qty`) AS `subtotal_barang`,count(distinct `p`.`id_customer`) AS `jml_transaksi`,`p`.`tgl_input` AS `tgl_input` from (((`penjualan` `p` join `customer` `c` on((`p`.`id_customer` = `c`.`id_customer`))) join `penjualan_detail` `pd` on((`p`.`id_penjualan` = `pd`.`id_penjualan`))) join `barang` `b` on((`pd`.`id_barang` = `b`.`id_barang`))) group by `p`.`tgl_invoice`,`pd`.`id_barang` order by `p`.`id_penjualan`,`p`.`tgl_invoice`,`b`.`id_barang`;
 
 -- ----------------------------
 -- View structure for v_penjualan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_penjualan`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_penjualan` AS select `p`.`id_penjualan` AS `id_penjualan`,`p`.`no_invoice` AS `no_invoice`,`p`.`tgl_invoice` AS `tgl_invoice`,`p`.`id_customer` AS `id_customer`,`c`.`nama_customer` AS `nama_customer`,`p`.`id_jenis_harga` AS `id_jenis_harga`,`jh`.`nama_jenis_harga` AS `nama_jenis_harga`,`p`.`diskon_jenis` AS `diskon_jenis`,`p`.`diskon_nilai` AS `diskon_nilai`,`p`.`diskon` AS `diskon`,`p`.`total_diskon` AS `total_diskon`,`p`.`sub_total` AS `sub_total`,`p`.`penyesuaian` AS `penyesuaian`,`p`.`pajak_display_text` AS `pajak_display_text`,`p`.`pajak_persen` AS `pajak_persen`,`p`.`pajak_nilai` AS `pajak_nilai`,`p`.`neto` AS `neto`,`p`.`total_bayar` AS `total_bayar`,`p`.`kembali` AS `kembali`,`p`.`kurang_bayar` AS `kurang_bayar`,`p`.`jenis_bayar` AS `jenis_bayar`,`p`.`status` AS `status`,`p`.`harga_pokok` AS `harga_pokok`,`p`.`untung_rugi` AS `untung_rugi`,`p`.`id_user_input` AS `id_user_input`,`p`.`tgl_input` AS `tgl_input` from ((`penjualan` `p` left join `jenis_harga` `jh` on((`p`.`id_jenis_harga` = `jh`.`id_jenis_harga`))) join `customer` `c` on((`p`.`id_customer` = `c`.`id_customer`)));
+
+-- ----------------------------
+-- Procedure structure for getBarangHarian
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `getBarangHarian`;
+delimiter ;;
+CREATE PROCEDURE `getBarangHarian`(IN `TGL_AWAL` date,IN `TGL_AKHIR` date)
+BEGIN
+
+
+set @sql = (
+    SELECT GROUP_CONCAT(DISTINCT
+        CONCAT(
+            "SUM(CASE WHEN nama_barang='", nama_barang, "' THEN subtotal_barang END) AS `", nama_barang, "`"
+        )
+    ORDER BY id_barang ASC)
+    FROM (SELECT
+	p.id_penjualan AS id_penjualan,
+	p.no_invoice AS no_invoice,
+	p.tgl_invoice AS tgl_invoice,
+	date_format( `p`.`tgl_invoice`, '%W' ) AS hari,
+	c.id_customer as id_customer,
+	pd.id_barang AS id_barang,
+	b.nama_barang AS nama_barang,
+	c.nama_customer AS nama_customer,
+	sum( pd.qty ) AS subtotal_barang
+	FROM
+		penjualan AS p
+		JOIN customer AS c USING ( id_customer )
+		JOIN penjualan_detail AS pd USING ( id_penjualan )
+		JOIN barang AS b USING ( id_barang ) 
+	WHERE
+		tgl_invoice BETWEEN `TGL_AWAL` AND `TGL_AKHIR`
+	GROUP BY 
+		p.tgl_invoice, p.id_customer) as v
+);
+
+-- SET @row_num = 0; (@row_num:=@row_num+1)AS No
+set @sql = concat("select id_penjualan, no_invoice, tgl_invoice, nama_customer, ", @sql, ", jumlah_tagihan, jenis_bayar from ", 
+"(SELECT
+	p.id_penjualan AS id_penjualan,
+	p.no_invoice AS no_invoice,
+	p.tgl_invoice AS tgl_invoice,
+	date_format( `p`.`tgl_invoice`, '%W' ) AS hari,
+	c.id_customer as id_customer,
+	pd.id_barang AS id_barang,
+	b.nama_barang AS nama_barang,
+	c.nama_customer AS nama_customer,
+	sum( pd.qty ) AS subtotal_barang,
+	SUM(p.neto) as jumlah_tagihan,
+	p.jenis_bayar as jenis_bayar
+	FROM
+		penjualan AS p
+		JOIN customer AS c USING ( id_customer )
+		JOIN penjualan_detail AS pd USING ( id_penjualan )
+		JOIN barang AS b USING ( id_barang ) 
+	WHERE
+		tgl_invoice BETWEEN '",`TGL_AWAL`,"' AND '",`TGL_AKHIR`,"'
+	GROUP BY
+		p.id_customer,
+		p.no_invoice,
+		pd.id_barang) as vr"," group by tgl_invoice, id_customer ORDER BY id_penjualan ASC");
+prepare stmt from @sql;
+execute stmt;
+END
+;;
+delimiter ;
 
 -- ----------------------------
 -- Procedure structure for getTanggalMingguini
@@ -111,7 +178,7 @@ SET @@lc_time_names = 'id_ID';
 set @sql = (
     SELECT group_concat(DISTINCT
         concat(
-            "sum(case when tgl_invoice='", tgl_invoice, "' then subtotal_barang end) as `", DATE_FORMAT(tgl_invoice, '%d-%m-%Y'), "`"
+            "SUM(CASE WHEN tgl_invoice='", tgl_invoice, "' THEN subtotal_barang END) AS `", DATE_FORMAT(tgl_invoice, '%d-%m-%Y'), "`"
         )
     )
     FROM (SELECT
