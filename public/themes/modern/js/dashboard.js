@@ -403,7 +403,7 @@ $(document).ready(function() {
 	{
 		column = $.parseJSON($('#penjualan-terbesar-column').html());
 		url = $('#penjualan-terbesar-url').text();
-		
+		console.log(url);
 		settings = {
 			"processing": true,
 			"serverSide": true,
@@ -432,6 +432,36 @@ $(document).ready(function() {
 		})
 	}
 	
+	//Tabel Barang Harian
+	let tableBarangHarian = '';
+	if ($('#tabel-barangharian').length > 0) {
+		column =$.parseJSON($('#tabel-barangharian-column').html());
+		url = $('#tabel-barangharian-url').text();
+		console.log('tabel barang harian', url);		
+		settings = {
+			"processing": true,
+			"serverSide": true,
+			"scrollX": true,
+			pageLength : 5,
+			lengthChange: false,
+			"ajax": {
+				"url": url,
+				"type": "GET",
+			},
+			"columns": column
+		}
+		$add_setting = $('#table-barangharian-setting');
+		if ($add_setting.length > 0) {
+			add_setting = $.parseJSON($('#table-barangharian-setting').html());
+			for (k in add_setting) {
+				settings[k] = add_setting[k];
+			}
+		}
+		
+		tableBarangHarian = $('#table-barangharian').DataTable(settings);
+
+	}
+
 	// Update Chart Penjualan
 	$('#tahun-penjualan-perbulan').change(function() {
 		$this = $(this);

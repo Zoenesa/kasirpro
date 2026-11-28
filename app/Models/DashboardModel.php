@@ -357,4 +357,32 @@ class DashboardModel extends \App\Models\BaseModel
 		}
 		return $where_jatuh_tempo;
 	}
+
+	public function GetBarangMingguIni(){
+		$custom_date = strtotime(date('Y-m-d', time())); 
+		$week_start = date('Y-m-d', strtotime('this week monday', $custom_date));
+		$week_end = date('Y-m-d', strtotime('this week sunday', $custom_date));
+		$arr = Array('2026-11-26', '2026-11-26');
+		// $arr = Array($week_start, $week_end);
+		$result = $this->db->query('CALL ViewPenjualanMingguan(?,?)', $arr)->getResultArray();
+		return $result;
+	}
+		
+	public function getBarangHarian(){
+		$custom_date = strtotime(date('Y-m-d', time())); 
+		$week_start = date('Y-m-d', strtotime('this week monday', $custom_date));
+		$week_end = date('Y-m-d', strtotime('this week sunday', $custom_date));
+		// $arr = Array($week_start, $week_start);
+		$arr = Array('2026-11-27', '2026-11-28');
+		$sql = $this->db->query('CALL getBarangHarian(?,?)', $arr);
+		$result['data'] = $sql->getResultArray();
+		$result['field'] = $sql->getFieldNames();
+		return $result;
+	}
+
+	public function GetTotalTransaksiMingguIni(){
+		$result = $this->db->query('CALL getBarangHarian')->getNumRows();
+		return json_encode($result);
+	}
+
 }

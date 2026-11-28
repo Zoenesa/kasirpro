@@ -83,13 +83,15 @@ class Dashboard extends BaseController
 		}
 
 		$this->data['item_terbaru'] = $item_terbaru;
+		$this->data['barangmingguini'] = $this->model->GetBarangMingguIni();
+		$this->data['baranghariini'] = $this->model->GetBarangharian();
 
 		$this->data['message']['status'] = 'ok';
 		if (empty($this->data['penjualan'])) {
 			$this->data['message']['status'] = 'error';
 			$this->data['message']['message'] = 'Data tidak ditemukan';
 		}
-
+		
 		$this->view('dashboard.php', $this->data);
 	}
 
@@ -179,7 +181,6 @@ class Dashboard extends BaseController
 
 	public function getDataDTPenjualanTerbesar()
 	{
-
 		$this->hasPermission('read_all');
 
 		$num_data = $this->model->countAllDataPejualanTerbesar($_GET['tahun']);
@@ -263,5 +264,22 @@ class Dashboard extends BaseController
 		$result['data'] = $query['data'];
 		echo json_encode($result);
 		exit();
+	}
+
+	public function ajaxGetBarangHarian(){
+		$barang['data'] = $this->model->getBarangHarian();
+		$barang['draw'] = $this->request->getPost('draw') + 1 ?: 1;
+		foreach ($$barang['data'] as $key => $value) {
+			$value['tgl_invoice'] = formatTanggalID($value['tgl_invoice']);
+		}
+		return json_encode($barang);
+	}
+
+	public function ajaxGetBarangMingguIni(){
+		$totalTransaksi = $this->model->GetTotalTransaksiMingguini();
+		$mingguan['draw'] = $this->request->getPost('draw');
+		$mingguan['data'] = $this->model->GetBarangMingguIni();
+		$mingguan['recordsTotal'] = $totalTransaksi;
+		echo json_encode($mingguan);
 	}
 }
