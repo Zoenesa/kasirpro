@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabs V05 | Colorlib</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="cl-tabs05-demo">
+        <section class="cl-tabs05" aria-labelledby="cl-tabs05-title">
+            <header class="cl-tabs05__head">
+                <p class="cl-tabs05__kicker">Driftwood CLI &middot; v3.2 docs</p>
+                <h1 class="cl-tabs05__title" id="cl-tabs05-title">Build static sites from Markdown</h1>
+            </header>
+
+            <div class="cl-tabs05__tabs" role="tablist" aria-label="Documentation chapters">
+                <button class="cl-tabs05__tab" type="button" role="tab" id="cl-tabs05-tab-start"
+                    aria-controls="cl-tabs05-start" aria-selected="true" style="--cl-tabs05-color:#f4dca8">
+                    <span class="cl-tabs05__no" aria-hidden="true">01</span> Quick start
+                </button>
+                <button class="cl-tabs05__tab" type="button" role="tab" id="cl-tabs05-tab-install"
+                    aria-controls="cl-tabs05-install" aria-selected="false" tabindex="-1"
+                    style="--cl-tabs05-color:#cfe4c6">
+                    <span class="cl-tabs05__no" aria-hidden="true">02</span> Installation
+                </button>
+                <button class="cl-tabs05__tab" type="button" role="tab" id="cl-tabs05-tab-config"
+                    aria-controls="cl-tabs05-config" aria-selected="false" tabindex="-1"
+                    style="--cl-tabs05-color:#cfe0f3">
+                    <span class="cl-tabs05__no" aria-hidden="true">03</span> Configuration
+                </button>
+                <button class="cl-tabs05__tab" type="button" role="tab" id="cl-tabs05-tab-api"
+                    aria-controls="cl-tabs05-api" aria-selected="false" tabindex="-1" style="--cl-tabs05-color:#f3d2d6">
+                    <span class="cl-tabs05__no" aria-hidden="true">04</span> API reference
+                </button>
+            </div>
+
+            <div class="cl-tabs05__folder">
+                <article class="cl-tabs05__sheet" role="tabpanel" id="cl-tabs05-start"
+                    aria-labelledby="cl-tabs05-tab-start" tabindex="0">
+                    <h2 class="cl-tabs05__h2">Quick start</h2>
+                    <p class="cl-tabs05__p">Create a site, write a page and preview it locally in under five minutes.
+                    </p>
+                    <ol class="cl-tabs05__steps">
+                        <li><strong>Create a project.</strong> The starter includes a home page, a blog folder and a
+                            default theme.
+                            <pre class="cl-tabs05__code"><code>npx driftwood new field-notes</code></pre>
+                        </li>
+                        <li><strong>Write your first page.</strong> Any <code class="cl-tabs05__inline">.md</code> file
+                            inside <code class="cl-tabs05__inline">content/</code> becomes a page with the same path.
+                        </li>
+                        <li><strong>Start the preview server.</strong> Pages reload as you save.
+                            <pre class="cl-tabs05__code"><code>cd field-notes &amp;&amp; npx driftwood dev</code></pre>
+                        </li>
+                    </ol>
+                    <p class="cl-tabs05__note"><strong>Tip:</strong> run <code
+                            class="cl-tabs05__inline">driftwood build</code> when you are ready. The finished site lands
+                        in <code class="cl-tabs05__inline">dist/</code>.</p>
+                </article>
+
+                <article class="cl-tabs05__sheet" role="tabpanel" id="cl-tabs05-install"
+                    aria-labelledby="cl-tabs05-tab-install" tabindex="0" hidden>
+                    <h2 class="cl-tabs05__h2">Installation</h2>
+                    <p class="cl-tabs05__p">Driftwood runs anywhere Node.js 20 or newer is available. Add it to an
+                        existing project as a dev dependency:</p>
+                    <pre class="cl-tabs05__code"><code>npm install --save-dev driftwood</code></pre>
+                    <h3 class="cl-tabs05__h3">Requirements</h3>
+                    <ul class="cl-tabs05__list">
+                        <li>Node.js 20.10 or later</li>
+                        <li>About 40 MB of disk space for the default theme</li>
+                        <li>macOS, Linux or Windows 10 and later</li>
+                    </ul>
+                    <p class="cl-tabs05__note"><strong>Upgrading from v2?</strong> Front matter keys are now lowercase.
+                        Run <code class="cl-tabs05__inline">driftwood migrate</code> once to rename them.</p>
+                </article>
+
+                <article class="cl-tabs05__sheet" role="tabpanel" id="cl-tabs05-config"
+                    aria-labelledby="cl-tabs05-tab-config" tabindex="0" hidden>
+                    <h2 class="cl-tabs05__h2">Configuration</h2>
+                    <p class="cl-tabs05__p">Settings live in <code class="cl-tabs05__inline">driftwood.config.js</code>
+                        at the project root. Every key is optional.</p>
+                    <div class="cl-tabs05__table-wrap">
+                        <table class="cl-tabs05__table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Option</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="cl-tabs05__inline">title</code></td>
+                                    <td>string</td>
+                                    <td>Folder name</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="cl-tabs05__inline">baseUrl</code></td>
+                                    <td>string</td>
+                                    <td><code class="cl-tabs05__inline">/</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="cl-tabs05__inline">outDir</code></td>
+                                    <td>string</td>
+                                    <td><code class="cl-tabs05__inline">dist</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="cl-tabs05__inline">drafts</code></td>
+                                    <td>boolean</td>
+                                    <td><code class="cl-tabs05__inline">false</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="cl-tabs05__sheet" role="tabpanel" id="cl-tabs05-api" aria-labelledby="cl-tabs05-tab-api"
+                    tabindex="0" hidden>
+                    <h2 class="cl-tabs05__h2">API reference</h2>
+                    <p class="cl-tabs05__p">Use the build API to run Driftwood from your own scripts.</p>
+                    <pre
+                        class="cl-tabs05__code"><code>build(options?: BuildOptions): Promise&lt;BuildResult&gt;</code></pre>
+                    <dl class="cl-tabs05__params">
+                        <div>
+                            <dt><code class="cl-tabs05__inline">options.root</code></dt>
+                            <dd>Project folder. Defaults to the current working directory.</dd>
+                        </div>
+                        <div>
+                            <dt><code class="cl-tabs05__inline">options.watch</code></dt>
+                            <dd>Rebuild on change and resolve only when stopped.</dd>
+                        </div>
+                        <div>
+                            <dt><code class="cl-tabs05__inline">BuildResult.pages</code></dt>
+                            <dd>Number of pages written, handy for CI logs.</dd>
+                        </div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="js/snippet.js"></script>
+</body>
+
+</html>

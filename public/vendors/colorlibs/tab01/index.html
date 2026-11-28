@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabs V01 | Colorlib</title>
+  
+  	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="cl-tabs01-demo">
+    <section class="cl-tabs01" aria-labelledby="cl-tabs01-title">
+      <header class="cl-tabs01__head">
+        <p class="cl-tabs01__eyebrow">Workspace &middot; Harbor &amp; Pine Studio</p>
+        <h1 class="cl-tabs01__title" id="cl-tabs01-title">Settings</h1>
+        <p class="cl-tabs01__sub">Manage your workspace details, team access, billing and alerts.</p>
+      </header>
+
+      <div class="cl-tabs01__bar">
+        <div class="cl-tabs01__list" role="tablist" aria-label="Settings sections">
+          <button class="cl-tabs01__tab" type="button" role="tab" id="cl-tabs01-tab-general" aria-controls="cl-tabs01-panel-general" aria-selected="true">General</button>
+          <button class="cl-tabs01__tab" type="button" role="tab" id="cl-tabs01-tab-team" aria-controls="cl-tabs01-panel-team" aria-selected="false" tabindex="-1">Team <span class="cl-tabs01__count">4</span></button>
+          <button class="cl-tabs01__tab" type="button" role="tab" id="cl-tabs01-tab-billing" aria-controls="cl-tabs01-panel-billing" aria-selected="false" tabindex="-1">Billing</button>
+          <button class="cl-tabs01__tab" type="button" role="tab" id="cl-tabs01-tab-alerts" aria-controls="cl-tabs01-panel-alerts" aria-selected="false" tabindex="-1">Notifications</button>
+          <button class="cl-tabs01__tab" type="button" role="tab" id="cl-tabs01-tab-apps" aria-controls="cl-tabs01-panel-apps" aria-selected="false" tabindex="-1">Integrations</button>
+          <span class="cl-tabs01__indicator" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="cl-tabs01__panel" role="tabpanel" id="cl-tabs01-panel-general" aria-labelledby="cl-tabs01-tab-general" tabindex="0">
+        <div class="cl-tabs01__intro">
+          <h2 class="cl-tabs01__h2">Workspace profile</h2>
+          <p class="cl-tabs01__p">This information appears on invoices and in emails sent to clients.</p>
+        </div>
+        <form class="cl-tabs01__form" action="#" onsubmit="return false">
+          <div class="cl-tabs01__grid">
+            <div class="cl-tabs01__field">
+              <label class="cl-tabs01__label" for="cl-tabs01-name">Workspace name</label>
+              <input class="cl-tabs01__input" id="cl-tabs01-name" type="text" value="Harbor &amp; Pine Studio" autocomplete="organization">
+            </div>
+            <div class="cl-tabs01__field">
+              <label class="cl-tabs01__label" for="cl-tabs01-url">Workspace URL</label>
+              <div class="cl-tabs01__affix">
+                <span class="cl-tabs01__prefix" aria-hidden="true">app.studio/</span>
+                <input class="cl-tabs01__input" id="cl-tabs01-url" type="text" value="harbor-pine" aria-describedby="cl-tabs01-url-hint">
+              </div>
+              <p class="cl-tabs01__hint" id="cl-tabs01-url-hint">Lowercase letters, numbers and dashes only.</p>
+            </div>
+            <div class="cl-tabs01__field">
+              <label class="cl-tabs01__label" for="cl-tabs01-zone">Time zone</label>
+              <select class="cl-tabs01__input cl-tabs01__select" id="cl-tabs01-zone">
+                <option>(GMT+00:00) London</option>
+                <option selected>(GMT+01:00) Amsterdam</option>
+                <option>(GMT-05:00) New York</option>
+                <option>(GMT+09:00) Tokyo</option>
+              </select>
+            </div>
+            <div class="cl-tabs01__field">
+              <label class="cl-tabs01__label" for="cl-tabs01-lang">Default language</label>
+              <select class="cl-tabs01__input cl-tabs01__select" id="cl-tabs01-lang">
+                <option selected>English (UK)</option>
+                <option>English (US)</option>
+                <option>Deutsch</option>
+                <option>Nederlands</option>
+              </select>
+            </div>
+          </div>
+          <div class="cl-tabs01__actions">
+            <button class="cl-tabs01__button cl-tabs01__button--ghost" type="reset">Discard</button>
+            <button class="cl-tabs01__button" type="submit">Save changes</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="cl-tabs01__panel" role="tabpanel" id="cl-tabs01-panel-team" aria-labelledby="cl-tabs01-tab-team" tabindex="0" hidden>
+        <div class="cl-tabs01__intro cl-tabs01__intro--split">
+          <div>
+            <h2 class="cl-tabs01__h2">Team members</h2>
+            <p class="cl-tabs01__p">4 of 10 seats used on the Growth plan.</p>
+          </div>
+          <button class="cl-tabs01__button" type="button">Invite member</button>
+        </div>
+        <ul class="cl-tabs01__people">
+          <li class="cl-tabs01__person"><span class="cl-tabs01__avatar" style="--cl-tabs01-hue:#4f46e5">MA</span><span class="cl-tabs01__who"><strong>Maya Alvarez</strong><span>maya@harborpine.studio</span></span><span class="cl-tabs01__role">Owner</span></li>
+          <li class="cl-tabs01__person"><span class="cl-tabs01__avatar" style="--cl-tabs01-hue:#0e7490">TO</span><span class="cl-tabs01__who"><strong>Tomas Okafor</strong><span>tomas@harborpine.studio</span></span><span class="cl-tabs01__role">Admin</span></li>
+          <li class="cl-tabs01__person"><span class="cl-tabs01__avatar" style="--cl-tabs01-hue:#be185d">LH</span><span class="cl-tabs01__who"><strong>Lena Hartmann</strong><span>lena@harborpine.studio</span></span><span class="cl-tabs01__role">Editor</span></li>
+          <li class="cl-tabs01__person"><span class="cl-tabs01__avatar" style="--cl-tabs01-hue:#b45309">RS</span><span class="cl-tabs01__who"><strong>Ravi Shah</strong><span>ravi@harborpine.studio</span></span><span class="cl-tabs01__role">Viewer</span></li>
+        </ul>
+      </div>
+
+      <div class="cl-tabs01__panel" role="tabpanel" id="cl-tabs01-panel-billing" aria-labelledby="cl-tabs01-tab-billing" tabindex="0" hidden>
+        <div class="cl-tabs01__plan">
+          <div>
+            <p class="cl-tabs01__plan-name">Growth plan</p>
+            <p class="cl-tabs01__plan-price"><strong>$48</strong> per month &middot; renews 14 Oct 2026</p>
+          </div>
+          <button class="cl-tabs01__button cl-tabs01__button--ghost" type="button">Change plan</button>
+        </div>
+        <div class="cl-tabs01__meter">
+          <div class="cl-tabs01__meter-top"><span id="cl-tabs01-seats">Seats used</span><span>4 of 10</span></div>
+          <div class="cl-tabs01__meter-track" role="progressbar" aria-labelledby="cl-tabs01-seats" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"><span style="width:40%"></span></div>
+        </div>
+        <h2 class="cl-tabs01__h2">Invoices</h2>
+        <ul class="cl-tabs01__invoices">
+          <li><span>14 Sep 2026</span><span>$48.00</span><span class="cl-tabs01__paid">Paid</span><button class="cl-tabs01__link" type="button">Download PDF</button></li>
+          <li><span>14 Aug 2026</span><span>$48.00</span><span class="cl-tabs01__paid">Paid</span><button class="cl-tabs01__link" type="button">Download PDF</button></li>
+          <li><span>14 Jul 2026</span><span>$36.00</span><span class="cl-tabs01__paid">Paid</span><button class="cl-tabs01__link" type="button">Download PDF</button></li>
+        </ul>
+      </div>
+
+      <div class="cl-tabs01__panel" role="tabpanel" id="cl-tabs01-panel-alerts" aria-labelledby="cl-tabs01-tab-alerts" tabindex="0" hidden>
+        <div class="cl-tabs01__intro">
+          <h2 class="cl-tabs01__h2">Email notifications</h2>
+          <p class="cl-tabs01__p">Choose which updates land in your inbox.</p>
+        </div>
+        <ul class="cl-tabs01__switches">
+          <li><label class="cl-tabs01__switch-row" for="cl-tabs01-n1"><span><strong>Project comments</strong><span>When someone replies to a thread you follow.</span></span><input class="cl-tabs01__switch" id="cl-tabs01-n1" type="checkbox" role="switch" checked></label></li>
+          <li><label class="cl-tabs01__switch-row" for="cl-tabs01-n2"><span><strong>Client approvals</strong><span>When a client approves or requests changes.</span></span><input class="cl-tabs01__switch" id="cl-tabs01-n2" type="checkbox" role="switch" checked></label></li>
+          <li><label class="cl-tabs01__switch-row" for="cl-tabs01-n3"><span><strong>Weekly summary</strong><span>A Monday digest of hours and deadlines.</span></span><input class="cl-tabs01__switch" id="cl-tabs01-n3" type="checkbox" role="switch"></label></li>
+        </ul>
+      </div>
+
+      <div class="cl-tabs01__panel" role="tabpanel" id="cl-tabs01-panel-apps" aria-labelledby="cl-tabs01-tab-apps" tabindex="0" hidden>
+        <div class="cl-tabs01__intro">
+          <h2 class="cl-tabs01__h2">Connected apps</h2>
+          <p class="cl-tabs01__p">Sync your workspace with the tools your team already uses.</p>
+        </div>
+        <ul class="cl-tabs01__apps">
+          <li class="cl-tabs01__app"><span class="cl-tabs01__app-icon" style="--cl-tabs01-hue:#0e7490">Ca</span><span><strong>Calendar sync</strong><span>Deadlines as calendar events</span></span><button class="cl-tabs01__button cl-tabs01__button--ghost" type="button">Manage</button></li>
+          <li class="cl-tabs01__app"><span class="cl-tabs01__app-icon" style="--cl-tabs01-hue:#7c3aed">Ch</span><span><strong>Team chat</strong><span>Post approvals to a channel</span></span><button class="cl-tabs01__button" type="button">Connect</button></li>
+          <li class="cl-tabs01__app"><span class="cl-tabs01__app-icon" style="--cl-tabs01-hue:#be185d">St</span><span><strong>Cloud storage</strong><span>Attach files from shared drives</span></span><button class="cl-tabs01__button" type="button">Connect</button></li>
+          <li class="cl-tabs01__app"><span class="cl-tabs01__app-icon" style="--cl-tabs01-hue:#15803d">Ac</span><span><strong>Accounting</strong><span>Export invoices every month</span></span><button class="cl-tabs01__button cl-tabs01__button--ghost" type="button">Manage</button></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+	<script src="js/snippet.js"></script>
+</body>
+</html>
